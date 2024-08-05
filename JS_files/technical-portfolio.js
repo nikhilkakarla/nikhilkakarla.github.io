@@ -65,7 +65,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
         </div>
         `,
-        box3: 'Chronicled information...',
+        box3: `
+        <div class="project-summary">
+        <h2>Kalshi Event Contract Trading Strategy and Prediction Model</h2>
+
+        <h3>Overview</h3>
+        <p>
+            This project revolves around leveraging event contracts on Kalshi, an online exchange platform. The focus is on trading contracts based on financial indices like the Nasdaq or S&P 500. These contracts have prices ranging between $0 and $1, turning into $1 if the relevant index closes within a specified range (e.g., 18000 to 18100 for the Nasdaq). A price of 50 cents indicates a 50% perceived chance of the event occurring.
+        </p>
+
+        <h3>Automated Trading Strategy</h3>
+        <p>
+            The core component of the project is a fully autonomous trading strategy implemented in the <code>all_day_operator</code> script. This strategy capitalizes on the human tendency to overestimate the likelihood of extreme market events. Key highlights include:
+        </p>
+        <ul>
+            <li><strong>End-of-Day Trading:</strong> The autonomous strategy operates without manual intervention, purchasing contracts just before market close if the index is securely within the target range, exploiting consistent market behavior.</li>
+            <li><strong>Arbitrage and Profit Locking:</strong> It automatically identifies arbitrage opportunities and executes trades across multiple ranges to ensure profitability, leveraging built-in algorithms to lock in gains.</li>
+            <li><strong>Data Acquisition:</strong> The system autonomously uses Optical Character Recognition (OCR) to scrape public index price data, bypassing costly data feeds and ensuring real-time information access.</li>
+            <li><strong>Performance:</strong> The strategy consistently achieved an average daily return of approximately 6% while running fully autonomously</li>
+        </ul>
+
+        <h3>Machine Learning Price Prediction</h3>
+        <p>
+            The second aspect of the project involves a machine learning model designed to predict stock prices, detailed in the <code>final_project</code> notebook. The model aims to surpass current market predictions by analyzing:
+        </p>
+        <ul>
+            <li><strong>Data Inputs:</strong> Features include the current time, Kalshi market price, index price, volatility measures, and end-of-day options pricing for relevant market ranges.</li>
+            <li><strong>LSTM Model:</strong> We utilize a Long Short-Term Memory (LSTM) neural network to model the complex relationships between the underlying asset prices and options prices. LSTMs are well-suited for time series data, allowing the model to learn patterns over time and predict future index prices accurately.</li>
+            <li><strong>Model Output:</strong> A prediction between 0 and 100 representing the market price as a percentage. The model forecasts the price an hour into the future by training on historical data.</li>
+            <li><strong>Training Process:</strong> The LSTM is trained using time series data from Kalshi and index prices collected over the last nine months, along with options pricing. The model adjusts its parameters to minimize prediction error, continuously learning from new data inputs.</li>
+        </ul>
+
+        <h3>Conclusion</h3>
+        <p>
+            This dual-faceted project showcases an innovative approach to event contract trading through automation and machine learning. By blending strategic trading techniques with advanced predictive modeling, it effectively enhances market engagement and forecasting accuracy.
+        </p>
+        </div>
+
+      
+        `,
         box4: `
         <div>
             <h2>Created Full Front-End and Back-End Online Video Game</h2>
@@ -211,7 +249,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 Although I never pursued the Navilux concept, the experience stoked my passion for entrepreneurship. I thoroughly enjoyed thinking about a company from a business perspective and uniting that understanding with my technical skills.
                 </p>
             <a href="technical_materials/Navilux Go To Market.pdf" download="technical_materials/Navilux Go To Market.pdf">Download Go To Market Strategy</a>
-
+            <div class="pdf-reader">
+                <h3>Read the Full Report</h3>
+                <iframe src="technical_materials/Navilux Go To Market.pdf" width=850 height=1100></iframe>
+            </div>
         </div>
         `
     };

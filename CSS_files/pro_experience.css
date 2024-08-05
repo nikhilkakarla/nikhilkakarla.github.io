@@ -2,8 +2,13 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(2,37,78,1) 0%, rgba(4,56,126,1) 19.7%, rgba(85,245,221,1) 100.2% );
-    color: white;
+    background-color: #000000;
+    /* text-align: center; */
+    /* opacity: 0.8; */
+    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #000000 11px ), repeating-linear-gradient( #595c8755, #595c87 );
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
 }
 
 header {
@@ -108,7 +113,7 @@ main {
 
 .content {
     padding: 20px 30px;
-    background-color: transparent;
+    background-color: black;
     position: relative;
     border-radius: 6px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
