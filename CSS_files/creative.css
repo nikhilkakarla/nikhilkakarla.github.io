@@ -55,9 +55,20 @@ body {
 
 .video-wrapper {
     position: relative;
-    width: 75%; /* Increased the width */
-    max-width: 1200px; /* Increased the maximum width */
+    width: 75%; /* Width remains the same */
+    max-width: 1500px; /* Maximum width remains the same */
+    height: 600px; /* Set a fixed height to maintain aspect ratio */
 }
+
+
+#video-player {
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    border: 5px solid #333;
+    border-radius: 10px;
+    animation: zoomIn 0.5s ease-in-out;
+}
+
 
 #video-player {
     width: 100%;
@@ -250,6 +261,7 @@ body {
     justify-content: center;
     gap: 10px;
     padding: 20px 0;
+    margin-top: 50px;
 }
 
 .thumbnail {
