@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikhil Kakarla Website</title>
+    <link rel="stylesheet" href="CSS_files/about_styles.css">
+    <style>
+        .hero-content {
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: transform 1s ease-out, opacity 1s ease-out;
+        }
+
+        .hero-image img {
+            opacity: 0;
+            transform: translateX(100%);
+            transition: transform 1s ease-out, opacity 1s ease-out;
+        }
+
+        .hero-content.show,
+        .hero-image img.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .contact-form,
+        .publications-list {
+            display: none;
+            font-size: 18px;
+            margin-top: 20px;
+            background-color: #007bff;
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        .contact-button,
+        .publications-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .contact-button:hover,
+        .publications-button:hover {
+            background-color: #333;
+        }
+
+        .social-media {
+            margin-top: 20px;
+        }
+
+        .social-media p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .social-media ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .social-media ul li {
+            margin: 5px 0;
+        }
+
+        .social-media ul li a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .social-media ul li a:hover {
+            color: #0056b3;
+        }
+        
+        .form-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .submit-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="home.html"><img src="images/PersonalLogo.png" alt="Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="professional_experience.html">Work Experience</a></li>
+                    <li><a href="technical-portfolio.html">Technical Portfolio</a></li>
+                    <li><a href="creative.html">Creative Portfolio</a></li>
+                    <li><a href="Nikhil_Kakarla_CV_2024.pdf" download="Nikhil_Kakarla_CV_2024.pdf">Resume Download</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Hello, it's me <span class="highlight">Nikhil</span>.</h1>
+                <p>I am a recent graduate from the Massachusetts Institute of Technology (MIT) with a B.S. degree in Computer Science. This spring, I am excited to start my career at McKinsey & Company as a Business Analyst, where I aim to leverage my technical expertise and business acumen to build and deploy novel analytical models for our clients.</p>
+                <p>I was born in Austin, Texas and then moved to Philadelphia, PA and attended Episcopal Academy High School. I am passionate about skiing, football, and electronic music; I love to work on niche projects in my free time. Before starting work, I am taking some time to explore the world and document my journey through video. Please reach out at any time!</p>
+                <button id="contactButton" class="contact-button">Contact Me</button>
+                <button id="publicationsButton" class="publications-button">Publications</button>
+                <div id="contactForm" class="contact-form">
+                    <div class="form-title">Please fill out and I will get back to you as soon as possible.</div>
+                    <form id="contact-form">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required><br>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required><br>
+                        <label for="message">Message:</label><br>
+                        <textarea id="message" name="message" rows="4" required></textarea><br>
+                        <input type="hidden" name="to_email" value="nikhilkakarla@gmail.com">
+                        <input type="hidden" name="from_name" id="from_name">
+                        <input type="hidden" name="from_email" id="from_email">
+                        <button type="submit" class="submit-button">Send</button>
+                    </form>
+                </div>
+                <div id="publicationsList" class="publications-list">
+                    <ul>
+                        <li>Publication 1: Fox F, Kakarla N, and Jokelson Z. “Leveraging Demand Analytics to Reach Sustainability Goals”  Planalytics, Inc., 2021, <a href= "https://www.planalytics.com/request-wp-reach-sustainability-goals/">https://www.planalytics.com/request-wp-reach-sustainability-goals/</a>.</li>
+                    </ul>
+                </div>
+                <div id="socialMedia" class="social-media" style="display: none;">
+                    <p>Follow me on:</p>
+                    <ul>
+                        <li><a href="https://twitter.com/yourprofile" target="_blank">Twitter</a></li>
+                        <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/your-image.png" alt="Nikhil_Pic">
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            emailjs.init("5i4JOjY7peRYCVjeH");
+
+            const heroContent = document.querySelector('.hero-content');
+            const heroImage = document.querySelector('.hero-image img');
+            setTimeout(() => {
+                heroContent.classList.add('show');
+                heroImage.classList.add('show');
+            }, 500); // Delay to allow for smoother animation
+            
+            const contactButton = document.getElementById('contactButton');
+            const contactForm = document.getElementById('contactForm');
+            const publicationsButton = document.getElementById('publicationsButton');
+            const publicationsList = document.getElementById('publicationsList');
+            
+            contactButton.addEventListener('click', function() {
+                contactForm.style.display = 'block';
+                contactButton.style.display = 'none';
+            });
+
+            publicationsButton.addEventListener('click', function() {
+                publicationsList.style.display = 'block';
+                publicationsButton.style.display = 'none';
+            });
+
+            const form = document.getElementById('contact-form');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const submitButton = form.querySelector('.submit-button');
+                submitButton.textContent = 'Sending...';
+                submitButton.disabled = true;
+
+                document.getElementById('from_name').value = document.getElementById('name').value;
+                document.getElementById('from_email').value = document.getElementById('email').value;
+
+                emailjs.sendForm('service_vow17gy', 'template_elihyir', form)
+                    .then(function(response) {
+                        submitButton.textContent = 'Sent';
+                        form.reset();
+                    }, function(error) {
+                        alert('Failed to send the message, please try again later.');
+                        submitButton.textContent = 'Send';
+                        submitButton.disabled = false;
+                    });
+            });
+        });
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikhil Kakarla Website</title>
+    <link rel="stylesheet" href="CSS_files/home_styles.css">
+    <style>
+        .typing-animation {
+            font-size: 48px;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid;
+            animation: typing 3.5s steps(30, end), blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="home.html"><img src="images/PersonalLogo.png" alt="Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="professional_experience.html">Work Experience</a></li>
+                    <li><a href="technical-portfolio.html">Technical Portfolio</a></li>
+                    <li><a href="creative.html">Creative Portfolio</a></li>
+                    <li><a href="Nikhil_Kakarla_CV_2024.pdf" download="Nikhil_Kakarla_CV_2024.pdf">Resume Download</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="video-container">
+        <video autoplay muted loop class="background-video">
+            <source src="montages/cover_page_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="content">
+        <div class="circle">
+            <h1 class="name"><span id="typed-name" class="typing-animation"></span></h1>
+            <p class="jobs">Computer Scientist - Consultant - Videographer</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const name = "NIKHIL KAKARLA";
+            const typedNameElement = document.getElementById("typed-name");
+            let index = 0;
+            
+            function type() {
+                if (index < name.length) {
+                    typedNameElement.textContent += name.charAt(index);
+                    index++;
+                    setTimeout(type, 150); // Adjust typing speed here
+                }
+            }
+            
+            type();
+        });
+    </script>
+</body>
+</html>

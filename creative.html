@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikhil Kakarla Website</title>
+    <link rel="stylesheet" href="CSS_files/creative.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="home.html"><img src="images/PersonalLogo.png" alt="Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="professional_experience.html">Work Experience</a></li>
+                    <li><a href="technical-portfolio.html">Technical Portfolio</a></li>
+                    <li><a href="creative.html">Creative Portfolio</a></li>
+                    <li><a href="Nikhil_Kakarla_CV_2024.pdf" download="Nikhil_Kakarla_CV_2024.pdf">Resume Download</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="video-player-container">
+        <button class="switch-btn" id="prev-btn">&#9664; Last</button>
+        <div class="video-wrapper">
+            <video id="video-player" autoplay controls>
+                <source src="video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p id="video-title">Video 1 Title</p>
+        </div>
+        <button class="switch-btn" id="next-btn">Next &#9654;</button>
+    </div>
+
+    <!-- Video Thumbnails Section -->
+    <div class="video-thumbnails">
+        <div class="thumbnail" data-index="0">
+            <img src="montages/Cover Pics/SecondSemPic.png" alt="Video 1">
+        </div>
+        <div class="thumbnail" data-index="1">
+            <img src="montages/Cover Pics/FirstSemPic.png" alt="Video 2">
+        </div>
+        <div class="thumbnail" data-index="2">
+            <img src="montages/Cover Pics/Summer2023Pic.png" alt="Video 3">
+        </div>
+        <div class="thumbnail" data-index="3">
+            <img src="montages/Cover Pics/GrimmentzPic.png" alt="Video 4">
+        </div>
+        <div class="thumbnail" data-index="4">
+            <img src="montages/Cover Pics/PowderChasersPic.png" alt="Video 5">
+        </div>
+        <div class="thumbnail" data-index="5">
+            <img src="montages/Cover Pics/SkydivingPic.png" alt="Video 6">
+        </div>
+    </div>
+
+    <div class="creative-projects">
+        <h2>Additional Creative Projects</h2>
+        <div class="project-grid">
+            <div class="project">
+                <p>Everything I do, I do for you</p>
+                <audio controls>
+                    <source src="montages/everything i do for you.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="project">
+                <p>Project 2</p>
+            </div>
+            <div class="project">
+                <p>Project 3</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="map-container">
+        <div id="title">Everywhere I Have Been</div>
+        <div id="map"></div>
+    </div>
+
+    <div class="scroll-label"><p>Scroll for more!</p></div>
+
+    <script src="JS_files/creative.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Define a custom icon
+        const pinIcon = L.icon({
+            iconUrl: 'images/pin_icon.png',
+            iconSize: [15, 30],
+            iconAnchor: [5, 27],
+            popupAnchor: [0, -41]
+        });
+
+        // Initialize the map
+        const map = L.map('map').setView([20, 0], 2);
+
+        // Add a tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Predefined pins
+        const travelLocations = [
+            {lat: 42.360081, lon: -71.058884, description: "Boston 2024"},
+            {lat: 41.668789, lon: -70.296242, description: "Cape Cod 2023"},
+            {lat: 4.700065, lon: -74.073254, description: "Bogota 2024"},
+            {lat: 42.648905, lon: -73.757870, description: "Albany 2023"},
+            {lat: 41.823990, lon: -71.412834, description: "Providence 2023"},
+            {lat: 45.501690, lon: -73.567253, description: "Montreal 2023"},
+            {lat: 46.118549, lon: -74.592957, description: "Mont Tremblant 2023"},
+            {lat: 44.282330, lon: -73.982964, description: "Lake Placid 2023"},
+            {lat: 41.308273, lon: -72.927879, description: "New Haven 2022"},
+            {lat: 39.952583, lon: -75.165222, description: "Philadelphia 2024"},
+            {lat: 39.153419, lon: -74.692902, description: "Sea Isle City 2023"},
+            {lat: 38.907192, lon: -77.036873, description: "Washington DC 2024"},
+            {lat: 25.755496, lon: -80.256341, description: "Miami 2024"},
+            {lat:33.442985, lon:-112.073686, description: "Pheonix 2019"},
+            {lat:30.256070, lon:-97.742712, description: "Austin 2019"},
+            {lat:33.693255, lon:-78.881691, description: "Myrtle Beach 2020"},
+            {lat: 39.775200, lon: -89.645999, description: "Springfield 2024"},
+            {lat: 18.582219, lon: -68.357970, description: "Punta Cana 2024"},
+            {lat: 32.776665, lon: -96.796989, description: "Dallas 2024"},
+            {lat: 37.774929, lon: -122.419418, description: "San Francisco 2023"},
+            {lat: -3.088180, lon: -59.977913, description: "Manaus 2024"},
+            {lat: 37.338207, lon: -121.886330, description: "San Jose"},
+            {lat: 38.722252, lon: -9.139337, description: "Lisbon 2024"},
+            {lat: 53.349804, lon: -6.260310, description: "Dublin 2024"},
+            {lat: 41.385063, lon: 2.173404, description: "Barcelona 2024"},
+            {lat: 39.020012, lon: 1.482148, description: "Ibiza 2024"},
+            {lat: 43.608292, lon: 3.879600, description: "Montpellier 2024"},
+            {lat: 43.296482, lon: 5.369780, description: "Marseille 2024"},
+            {lat: 40.851799, lon: 14.268120, description: "Naples 2024"},
+            {lat: 40.626320, lon: 14.375740, description: "Sorrento 2024"},
+            {lat: 41.902782, lon: 12.496365, description: "Rome 2024"},
+            {lat: 45.464203, lon: 9.189982, description: "Milan 2024"},
+            {lat: 46.947975, lon: 7.447447, description: "Bern 2024"},
+            {lat: 47.369019, lon: 8.538030, description: "Zurich 2024"},
+            {lat: 46.020714, lon: 7.749117, description: "Zermatt 2024"},
+            {lat: 46.624329, lon: 8.034030, description: "Grindelwald 2024"},
+            {lat: 48.139130, lon: 11.580220, description: "Munich 2024"},
+            {lat: 51.5073219, lon: -0.1276474, description: 'London 2024'},
+            {lat: 48.8566969, lon: 2.3514616, description: 'Paris 2024'},
+            {lat: 40.7127281, lon: -74.0060152, description: 'New York City 2024'},
+            {lat: 40.550911, lon: 14.242930, description: "Capri 2024"},
+            {lat: -22.928126, lon: -43.178643, description: "Rio De Janeiro 2019"},
+            {lat: -23.550938, lon: -46.638772, description: "Sao Paulo 2019"},
+            {lat: 9.764540, lon: -82.874777, description: "Cahuita"},
+            {lat: 21.154304, lon: -86.843918, description: "Cancún"},
+            {lat: 18.433218, lon: -66.065162, description: "San Juan"},
+            {lat: 47.594323, lon: -122.331516, description: "Seattle"},
+            {lat: 40.748924, lon: -111.900258, description: "Salt Lake City"},
+            {lat: 39.704859, lon: -104.990583, description: "Denver"},
+            {lat: 35.418562, lon: -97.443576, description: "Oklahoma City"},
+            {lat: 36.095882, lon: -86.703768, description: "Nashville"},
+            {lat: 41.832101, lon: -87.639110, description: "Chicago"},
+            {lat: 50.671861, lon: -120.407276, description: "Kamloops"},
+            {lat: 52.201257, lon: 21.067017, description: "Warsaw"},
+            {lat: 17.394750, lon: 78.473448, description: "Hyderabad"},
+            {lat: 6.979811, lon: 79.916322, description: "Sri Lanka"},
+            {lat: 9.307580, lon: 76.751043, description: "Kerala"},
+            {lat: 19.063308, lon: 72.947976, description: "Mumbai"},
+            {lat:25.25666564, lon: 51.558997764, description: "Qatar"},
+            {lat:42.331429, lon: -83.045753, description: "Detroit"},
+            {lat:36.1540 , lon: 95.9928, description: "Tulsa" },
+            {lat:38.978443,lon: -76.492180, description: "Annapolis"}
+        ];
+
+        // Function to add a pin
+        function addPin(lat, lon, description) {
+            const marker = L.marker([lat, lon], { icon: pinIcon }).addTo(map);
+            if (description) {
+                marker.bindPopup(description);
+            }
+        }
+
+        // Add all predefined pins
+        travelLocations.forEach(location => {
+            addPin(location.lat, location.lon, location.description);
+        });
+    </script>
+</body>
+</html>
