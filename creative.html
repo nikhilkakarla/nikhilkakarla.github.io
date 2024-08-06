@@ -24,62 +24,64 @@
             </nav>
         </div>
     </header>
-    <div class="video-player-container">
-        <button class="switch-btn" id="prev-btn">&#9664; Last</button>
-        <div class="video-wrapper">
-            <iframe id="video-player" src="https://www.youtube.com/embed/H6uiZ1IZhfA" frameborder="0" allowfullscreen autoplay="1"></iframe>
-            <p id="video-title">Video 1 Title</p>
-        </div>
-        <button class="switch-btn" id="next-btn">Next &#9654;</button>
-    </div>
-
-    <!-- Video Thumbnails Section -->
-    <div class="video-thumbnails">
-        <div class="thumbnail" data-index="0">
-            <img src="montages/Cover Pics/SecondSemPic.png" alt="Video 1">
-        </div>
-        <div class="thumbnail" data-index="1">
-            <img src="montages/Cover Pics/FirstSemPic.png" alt="Video 2">
-        </div>
-        <div class="thumbnail" data-index="2">
-            <img src="montages/Cover Pics/Summer2023Pic.png" alt="Video 3">
-        </div>
-        <div class="thumbnail" data-index="3">
-            <img src="montages/Cover Pics/GrimmentzPic.png" alt="Video 4">
-        </div>
-        <div class="thumbnail" data-index="4">
-            <img src="montages/Cover Pics/PowderChasersPic.png" alt="Video 5">
-        </div>
-        <div class="thumbnail" data-index="5">
-            <img src="montages/Cover Pics/SkydivingPic.png" alt="Video 6">
-        </div>
-    </div>
-
-    <div class="creative-projects">
-        <h2>Additional Creative Projects</h2>
-        <div class="project-grid">
-            <div class="project">
-                <p>Everything I do, I do for you</p>
-                <audio controls>
-                    <source src="montages/everything i do for you.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
+    <div class="all-content">
+        <div class="video-player-container">
+            <button class="switch-btn" id="prev-btn">&#9664; Last</button>
+            <div class="video-wrapper">
+                <iframe id="video-player" src="https://www.youtube.com/embed/H6uiZ1IZhfA" frameborder="0" allowfullscreen autoplay="1"></iframe>
+                <p id="video-title">Video 1 Title</p>
             </div>
-            <div class="project">
-                <p>Project 2</p>
+            <button class="switch-btn" id="next-btn">Next &#9654;</button>
+        </div>
+
+        <!-- Video Thumbnails Section -->
+        <div class="video-thumbnails">
+            <div class="thumbnail" data-index="0">
+                <img src="montages/Cover Pics/SecondSemPic.png" alt="Video 1">
             </div>
-            <div class="project">
-                <p>Project 3</p>
+            <div class="thumbnail" data-index="1">
+                <img src="montages/Cover Pics/FirstSemPic.png" alt="Video 2">
+            </div>
+            <div class="thumbnail" data-index="2">
+                <img src="montages/Cover Pics/Summer2023Pic.png" alt="Video 3">
+            </div>
+            <div class="thumbnail" data-index="3">
+                <img src="montages/Cover Pics/GrimmentzPic.png" alt="Video 4">
+            </div>
+            <div class="thumbnail" data-index="4">
+                <img src="montages/Cover Pics/PowderChasersPic.png" alt="Video 5">
+            </div>
+            <div class="thumbnail" data-index="5">
+                <img src="montages/Cover Pics/SkydivingPic.png" alt="Video 6">
             </div>
         </div>
-    </div>
 
-    <div id="map-container">
-        <div id="title">Everywhere I Have Been</div>
-        <div id="map"></div>
-    </div>
+        <div class="creative-projects">
+            <h2>Additional Creative Projects</h2>
+            <div class="project-grid">
+                <div class="project">
+                    <p>Everything I do, I do for you</p>
+                    <audio controls>
+                        <source src="montages/everything i do for you.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="project">
+                    <p>Project 2</p>
+                </div>
+                <div class="project">
+                    <p>Project 3</p>
+                </div>
+            </div>
+        </div>
 
-    <div class="scroll-label"><p>Scroll for more!</p></div>
+        <div id="map-container">
+            <div id="title">Everywhere I Have Been</div>
+            <div id="map"></div>
+        </div>
+
+        <div class="scroll-label"><p>Scroll for more!</p></div>
+    </div>
 
     <script src="JS_files/creative.js"></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -148,7 +150,7 @@
             {lat: 21.154304, lon: -86.843918, description: "Cancún 2022"},
             {lat: 18.433218, lon: -66.065162, description: "San Juan 2022"},
             {lat: 47.594323, lon: -122.331516, description: "Seattle 2019"},
-            {lat: 45.517874, lon: -122.680196, description: "Portland 2019"}
+            {lat: 45.517874, lon: -122.680196, description: "Portland 2019"},
             {lat: 40.748924, lon: -111.900258, description: "Salt Lake City "},
             {lat: 39.704859, lon: -104.990583, description: "Denve 2019"},
             {lat: 35.418562, lon: -97.443576, description: "Oklahoma City 2010"},

@@ -1,7 +1,18 @@
+/* Base Styles (for larger screens) */
 header {
-    padding: 0; /* Remove padding to allow navbar styles */
+    padding: 0;
     text-align: left;
-    background-color: transparent; /* Match background color of body */
+    background-color: transparent;
+}
+
+header {
+    padding: 0;
+    text-align: left;
+    background-color: transparent;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 .navbar {
@@ -9,7 +20,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 5%;
-    border-bottom: 2px solid #ffffff; /* Optional: adds a bottom border to separate the navbar */
+    border-bottom: 2px solid #ffffff;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .navbar .logo img {
@@ -45,32 +57,31 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     background-color: #000000;
-    /* text-align: center; */
-    /* opacity: 0.8; */
-    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #000000 11px ), repeating-linear-gradient( #595c8755, #595c87 );
+    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #000000 11px), repeating-linear-gradient(#595c8755, #595c87);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
     height: 100vh;
 }
 
 .container {
+    /* padding-top: 100px; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto; /* Allow rows to auto size */
-    grid-row-gap: 15px; /* Increase the space between rows */
-    grid-column-gap: 20px; /* Keep the space between columns */
+    grid-template-rows: auto;
+    grid-row-gap: 15px;
+    grid-column-gap: 20px;
     width: 100vw;
     padding: 20px;
     box-sizing: border-box;
-    margin-top: 10px; /* Start near the top */
+    margin-top: 50px;
     overflow: hidden;
 }
 
 .box {
     position: relative;
     width: 100%;
-    padding-top: 66.66%; /* 3:2 Aspect Ratio */
-    background-size: cover; /* Scale the image to fit the box */
+    padding-top: 66.66%;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
@@ -78,9 +89,9 @@ body {
     overflow: hidden;
     opacity: 0;
     transition: opacity 2s ease-in-out;
-    border: 1px solid black; /* Thin black outline */
+    border: 1px solid black;
     margin: 12px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .box::before {
@@ -90,22 +101,12 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.65); /* Dark overlay */
+    background: rgba(0, 0, 0, 0.65);
 }
 
 .box.visible {
     opacity: 1;
 }
-
-#box1 { background-image: url('images/urop_cover.png'); }
-#box2 { background-image: url('images/robot_car_cover.png'); }
-#box3 { background-image: url('images/kalshi_cover.png'); }
-#box4 { background-image: url('images/starb_cover.png'); }
-#box5 { background-image: url('images/LISP_cover.png'); }
-#box6 { background-image: url('images/riscv_cover.png'); }
-#box7 { background-image: url('images/fifa_cover.png'); }
-#box8 { background-image: url('images/DP_cover.png'); }
-#box9 { background-image: url('images/navilux_cover.png'); }
 
 .content, .overlay {
     position: absolute;
@@ -132,7 +133,7 @@ body {
     top: 100%;
     justify-content: center;
     align-items: flex-start;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .overlay p {
@@ -194,5 +195,61 @@ body {
     transition-delay: 1s;
 }
 
+/* Mobile Styles (for screens less than 768px wide) */
+@media (max-width: 767px) {
+    .navbar {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background-color: #000;
+        z-index: 1000;
+    }
+
+    .navbar .logo img {
+        height: 30px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        padding-top: 70px; /* Adjust for fixed navbar */
+    }
+
+    .box {
+        margin: 10px 0;
+    }
+
+    .content p {
+        font-size: 1.2em;
+        padding: 20px;
+    }
+
+    .overlay p {
+        font-size: 20px;
+    }
+
+    .logo {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav ul {
+        display: none; /* Hide the nav items on mobile */
+    }
+}
 
 
+
+
+
+
+
+#box1 { background-image: url('images/urop_cover.png'); }
+#box2 { background-image: url('images/robot_car_cover.png'); }
+#box3 { background-image: url('images/kalshi_cover.png'); }
+#box4 { background-image: url('images/starb_cover.png'); }
+#box5 { background-image: url('images/LISP_cover.png'); }
+#box6 { background-image: url('images/riscv_cover.png'); }
+#box7 { background-image: url('images/fifa_cover.png'); }
+#box8 { background-image: url('images/DP_cover.png'); }
+#box9 { background-image: url('images/navilux_cover.png'); }

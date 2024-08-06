@@ -2,18 +2,20 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #000000;
-    /* text-align: center; */
-    /* opacity: 0.8; */
-    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #000000 11px ), repeating-linear-gradient( #595c8755, #595c87 );
+    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #000000 11px), repeating-linear-gradient(#595c8755, #595c87);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
     height: 100vh;
 }
 
 header {
-    padding: 0; /* Remove padding to allow navbar styles */
+    padding: 0;
     text-align: left;
-    background-color: transparent;/* Match background color of body */
+    background-color: transparent;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 .navbar {
@@ -21,7 +23,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 5%;
-    border-bottom: 2px solid #ffffff; /* Optional: adds a bottom border to separate the navbar */
+    border-bottom: 2px solid #ffffff;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .navbar .logo img {
@@ -57,7 +60,9 @@ nav ul li a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 80px 5%; /* Adjusted padding to account for the fixed header */
+    padding: 80px 5%;
+    margin-top: 12vh; /* Account for fixed navbar */
+    padding-top: 100px;
 }
 
 .hero-content {
@@ -106,13 +111,13 @@ nav ul li a:hover {
 }
 
 .contact-button:hover {
-    background-color:#333;
+    background-color: #333;
 }
 
 .social-media {
     margin-top: 20px;
 }
-    
+
 .social-media p {
     font-size: 18px;
     font-weight: bold;
@@ -138,3 +143,36 @@ nav ul li a:hover {
     color: #0056b3;
 }
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-image {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .hero-image img {
+        width: 80px; /* Smaller icon size for mobile */
+        height: auto;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
