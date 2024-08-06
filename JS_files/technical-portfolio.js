@@ -71,37 +71,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <h3>Overview</h3>
         <p>
-            This project revolves around leveraging event contracts on Kalshi, an online exchange platform. The focus is on trading contracts based on financial indices like the Nasdaq or S&P 500. These contracts have prices ranging between $0 and $1, turning into $1 if the relevant index closes within a specified range (e.g., 18000 to 18100 for the Nasdaq). A price of 50 cents indicates a 50% perceived chance of the event occurring.
+            Our system leverages event contracts on Kalshi, an online exchange platform. Kalshi enables the trading of contracts that track financial indices like the Nasdaq or S&P 500. These contracts have prices ranging between $0 and $1 and convert to $1 if the relevant index closes within a specified range (e.g., 18000 to 18100 for the Nasdaq). 
+            In this paradigm, a price of 50 cents indicates a 50% perceived chance of the event occurring.
         </p>
 
         <h3>Automated Trading Strategy</h3>
         <p>
-            The core component of the project is a fully autonomous trading strategy implemented in the <code>all_day_operator</code> script. This strategy capitalizes on the human tendency to overestimate the likelihood of extreme market events. Key highlights include:
+            The core component our system is a fully autonomous trading strategy implemented in python. Our strategy capitalizes on the human tendency to overestimate the likelihood of extreme market events. Key highlights include:
         </p>
         <ul>
-            <li><strong>End-of-Day Trading:</strong> The autonomous strategy operates without manual intervention, purchasing contracts just before market close if the index is securely within the target range, exploiting consistent market behavior.</li>
-            <li><strong>Arbitrage and Profit Locking:</strong> It automatically identifies arbitrage opportunities and executes trades across multiple ranges to ensure profitability, leveraging built-in algorithms to lock in gains.</li>
-            <li><strong>Data Acquisition:</strong> The system autonomously uses Optical Character Recognition (OCR) to scrape public index price data, bypassing costly data feeds and ensuring real-time information access.</li>
+            <li><strong>End-of-Day Trading:</strong> The autonomous strategy operates without manual intervention, purchasing contracts just before market close if the index is securely within the target range in order to exploit consistent underpricing.</li>
+            <li><strong>Arbitrage and Loss Prevention:</strong> Our system automatically identifies arbitrage opportunities and executes trades across multiple ranges to lock in profits. There are also fail safes and loss prevention systems.</li>
+            <li><strong>Data Acquisition:</strong> The system autonomously uses Optical Character Recognition (OCR) to scrape public index price data, circumventing costly data feeds and ensuring real-time information access.</li>
             <li><strong>Performance:</strong> The strategy consistently achieved an average daily return of approximately 6% while running fully autonomously</li>
         </ul>
 
         <h3>Machine Learning Price Prediction</h3>
         <p>
-            The second aspect of the project involves a machine learning model designed to predict stock prices, detailed in the <code>final_project</code> notebook. The model aims to surpass current market predictions by analyzing:
+            The second aspect of the project involves a LSTM machine learning model to predict stock prices. The model aims to surpass current market predictions by analyzing:
         </p>
         <ul>
-            <li><strong>Data Inputs:</strong> Features include the current time, Kalshi market price, index price, volatility measures, and end-of-day options pricing for relevant market ranges.</li>
-            <li><strong>LSTM Model:</strong> We utilize a Long Short-Term Memory (LSTM) neural network to model the complex relationships between the underlying asset prices and options prices. LSTMs are well-suited for time series data, allowing the model to learn patterns over time and predict future index prices accurately.</li>
-            <li><strong>Model Output:</strong> A prediction between 0 and 100 representing the market price as a percentage. The model forecasts the price an hour into the future by training on historical data.</li>
-            <li><strong>Training Process:</strong> The LSTM is trained using time series data from Kalshi and index prices collected over the last nine months, along with options pricing. The model adjusts its parameters to minimize prediction error, continuously learning from new data inputs.</li>
+            <li><strong>Data Inputs:</strong> Features include the current time, Kalshi market price, index price, volatility measures, and end-of-day options prices for relevant market ranges.</li>
+            <li><strong>LSTM Model:</strong> We utilize a Long Short-Term Memory (LSTM) neural network to capture the relationship between the underlying index price, options prices, and the value of the Kalshi asset. LSTMs are well-suited for multivariate time series data as it can learn patterns over time and predict future index prices.</li>
+            <li><strong>Model Output:</strong> Afte being trained on years of historical data, the model forecasts the asset price an hour into the future to enable protitable trading.</li>
         </ul>
 
         <h3>Conclusion</h3>
         <p>
-            This dual-faceted project showcases an innovative approach to event contract trading through automation and machine learning. By blending strategic trading techniques with advanced predictive modeling, it effectively enhances market engagement and forecasting accuracy.
+            This dual-faceted system showcases an innovative approach to event contract trading through automation and machine learning. By blending strategic trading techniques with advanced predictive modeling, it effectively enhances market engagement and forecasting accuracy.
         </p>
         </div>
-
       
         `,
         box4: `
