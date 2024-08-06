@@ -6,15 +6,16 @@ body, html {
     display: flex;
     flex-direction: column;
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 header {
     padding: 0;
     text-align: left;
-    background-color: transparent; /* Make the header transparent */
-    position: fixed; /* Fix the header at the top */
-    width: 100%; /* Make the header span the full width */
-    z-index: 2; /* Ensure the header is above other elements */
+    background-color: transparent;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
 }
 
 .video-container {
@@ -39,7 +40,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 5%;
-    border-bottom: 2px solid #ffffff; /* Optional: adds a bottom border to separate the navbar */
+    border-bottom: 2px solid #ffffff;
+    background-color: transparent; /* Transparent background */
 }
 
 .navbar .logo img {
@@ -49,7 +51,7 @@ header {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 5vw; /* Use vw for responsiveness */
     margin: 0;
     padding: 0;
 }
@@ -71,13 +73,6 @@ nav ul li a:hover {
     border-radius: 4px;
 }
 
-.resume-button {
-    background-color: #007bff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-}
-
 .content {
     position: relative;
     z-index: 1;
@@ -86,30 +81,94 @@ nav ul li a:hover {
     align-items: center;
     height: 100%;
     text-align: center;
+    margin-top: 10vh; /* Margin to push content below the navbar */
 }
 
 .circle {
     border: 3px solid white;
     border-radius: 50%;
-    width: 70vh;
-    height: 70vh;
+    width: 50vw; /* Use vw for circle sizing */
+    height: 50vw; /* Use vw for circle sizing */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.1);
+    max-width: 80vh; /* Constrain max size */
+    max-height: 80vh; /* Constrain max size */
 }
 
 .name {
     margin: 0;
-    font-size: 3.2em;
+    font-size: 5.5vw; /* Adjusted to fit inside the circle */
+    /* max-width: 19%; Ensure it doesn't exceed the circle's width */
     color: #f9f6f6;
-    font-family:'Times New Roman', Times, serif
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1; /* Ensure the text stays inside the circle */
+    word-wrap: break-word;
 }
 
 .jobs {
-    margin: 10px 0 0;
-    font-size: 1.0em;
+    margin: 3px 0 0;
+    font-size: 1.2vw; /* Use vw for font size, responsive to circle size */
+    max-width: 90%; /* Ensure it doesn't exceed the circle's width */
     color: #f9f6f6;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.2; /* Ensure the text stays inside the circle */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navbar .logo img {
+        height: 30px;
+    }
+
+    .content {
+        margin-top: 20vh; /* Adjusted for smaller screens */
+    }
+
+    .circle {
+        width: 60vw;
+        height: 60vw;
+    }
+
+    .name {
+        font-size: 6vw; /* Adjust font size for smaller circles */
+    }
+
+    .jobs {
+        font-size: 3vw; /* Adjust font size for smaller circles */
+    }
+}
+
+@media (max-width: 480px) {
+    .circle {
+        width: 70vw;
+        height: 70vw;
+    }
+
+    .name {
+        font-size: 7vw; /* Further adjust font size for smaller screens */
+    }
+
+    .jobs {
+        font-size: 3.5vw; /* Further adjust font size for smaller screens */
+    }
+
+    nav ul {
+        gap: 5px;
+    }
+
+    .content {
+        margin-top: 25vh; /* Adjusted for smaller screens */
+    }
 }
