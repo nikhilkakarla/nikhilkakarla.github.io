@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.getElementById('next-btn');
 
     const videos = [
+        { src: 'https://www.youtube.com/embed/noH4cnaVn1I?si=tHqfxFTuA-6uT-6y', title: 'Summer Of Travel (06/01/2024 - 08/15/2024)' },
         { src: 'https://www.youtube.com/embed/H6uiZ1IZhfA', title: 'Second Semester Senior Year (01/01/2024 - 06/01/2024)' },
         { src: 'https://www.youtube.com/embed/Cq99woykFB4', title: 'First Semester Senior Year (09/01/2023 - 01/01/2024)' },
         { src: 'https://www.youtube.com/embed/Y20P9mIFCrs', title: 'Summer of 2023 (05/25/2023 - 08/28/2024)' },
