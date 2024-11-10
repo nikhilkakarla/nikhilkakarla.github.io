@@ -104,33 +104,63 @@ document.addEventListener('DOMContentLoaded', () => {
       
         `,
         box4: `
-        <div>
-            <h2>Created Full Front-End and Back-End Online Video Game</h2>
-            <h3>Code Base: <a href="https://github.com/nkakarla712/starb_game">Linked Here</a></h3>
-            <h4>Introduction</h4>
-            <p>StarB is a captivating puzzle game where players are challenged to place stars on a board such that each row, column, and designated grouping contains exactly one star. The game's core objective is to strategically position the stars to satisfy these constraints.</p>
-            
-            <h4>Technical Overview</h4>
-            <h5>Front End:</h5>
-            <p>The front end of StarB is equipped with a fully interactive and visually appealing interface. Built with modern web technologies like HTML5, CSS3, and JavaScript, the front end ensures a responsive and engaging user experience. Advanced techniques such as canvas-based rendering and CSS animations are used to create a smooth and immersive gameplay environment. Players can intuitively place stars on the board with drag-and-drop functionality, and receive instant visual feedback through dynamic updates that reflect their actions in real-time.</p>
-            
-            <h5>Back End:</h5>
-            <p>The back end of StarB is engineered for efficiency and scalability, leveraging Node.js and Express.js to handle server-side logic. The server autonomously processes packets from various front ends, using WebSocket for real-time communication and ensuring low-latency interactions. The server's architecture is designed to handle concurrent connections and multiple simultaneous requests, maintaining consistent performance through load balancing and efficient resource management. The game logic, implemented in TypeScript, ensures robust and type-safe operations, enhancing both reliability and maintainability.</p>
-            
-            <h5>Code Quality:</h5>
-            <p>StarB's code base exemplifies high-quality software engineering practices. The code is modular, adhering to SOLID principles, and employs design patterns such as MVC (Model-View-Controller) to separate concerns and enhance maintainability. Comprehensive unit and integration tests are included to rigorously validate game functionalities and ensure high reliability and performance. The use of TypeScript provides static type checking, reducing the likelihood of runtime errors and improving overall code quality. The project follows industry standards for code documentation and version control, making it easy to extend and collaborate on.</p>
-            
-            <h4>Key Features:</h4>
-            <ul>
-                <li>Interactive UI with real-time feedback and smooth animations.</li>
-                <li>Responsive design ensuring compatibility across devices and screen sizes.</li>
-                <li>Real-time communication with the server using WebSocket for seamless gameplay.</li>
-                <li>Efficient handling of concurrent user requests with a scalable server architecture.</li>
-                <li>Comprehensive test suite for continuous integration and delivery.</li>
-                <li>Modular and maintainable code base adhering to industry best practices.</li>
-            </ul>
-        
-        </div>`,
+       <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>KeepInTouch - Professional Networking Made Easy</title>
+            <style>
+                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; }
+                .container { width: 90%; max-width: 800px; margin: auto; padding: 20px; }
+                h1 { color: #0066cc; text-align: center; margin-bottom: 30px; }
+                .section { margin: 30px 0; }
+                .section h2 { color: #333; }
+                .feature-list { list-style-type: none; padding: 0; }
+                .feature-list li { background: #f0f0f0; padding: 10px; margin-bottom: 5px; border-left: 4px solid #0066cc; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>KeepInTouch - Professional Networking Made Easy</h1>
+
+                <div class="section">
+                    <h2>Main Benefits and Use Case</h2>
+                    <p>
+                        KeepInTouch is your essential tool for maintaining and strengthening your professional network. 
+                        Building and nurturing relationships is vital for career growth, and this app makes it easier than ever 
+                        to stay connected. It helps you remember when to reach out to colleagues, mentors, and business partners, 
+                        ensuring that no relationship slips through the cracks.
+                    </p>
+                    <p>
+                        One of the main features of KeepInTouch is the ability to set reminders for follow-ups, important dates 
+                        like birthdays or work anniversaries, and other special moments in the lives of the people you care about. 
+                        This ensures you stay engaged and make a lasting impression.
+                    </p>
+                    <p>
+                        Additionally, KeepInTouch uses location-based tracking to remind you of contacts nearby. 
+                        When you're in the same area as a contact, the app will notify you, offering an opportunity for an 
+                        impromptu meeting or catch-up. This feature helps you make the most of every interaction and ensures your 
+                        network stays active and vibrant.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <h2>Technical Features</h2>
+                    <ul class="feature-list">
+                        <li><strong>Swipe-Based Contact Finder:</strong> Quickly browse contacts to identify who to reach out to. Swipe right to save for later or left to skip.</li>
+                        <li><strong>Cloud Backup and Sync:</strong> Ensure your contact data is safe with automated daily backups and seamless synchronization using Realm database.</li>
+                        <li><strong>Custom Reminders and Notifications:</strong> Set reminders for follow-ups and special dates like birthdays, anniversaries, and work milestones.</li>
+                        <li><strong>Location-Based Suggestions:</strong> Keep track of contacts in your area and get notified when you’re nearby someone you may want to connect with.</li>
+                        <li><strong>Contact Details View:</strong> View contact information at a glance, including affiliation, last contacted date, and personal notes.</li>
+                        <li><strong>Editing and Management:</strong> Delete, edit, and manage contact details with ease through intuitive UI features.</li>
+                        <li><strong>Smart Contact Sorting:</strong> Reorder contacts by their priority based on last contacted date and reminders set.</li>
+                    </ul>
+                </div>
+            </div>
+        </body>
+        </html>
+`,
         box5: `
         <div>
             <h2>Snek Interpreter</h2>
