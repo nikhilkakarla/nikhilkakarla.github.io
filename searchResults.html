@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFL Coach Play Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-panel {
+            width: 33%;
+            background: #f4f4f4;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tendencies {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .tendencies-banner {
+            background: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .tendency-boxes {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px; /* Spacing between boxes */
+        }
+
+        .tendency-box {
+            text-align: center;
+            background: #ddd;
+            padding: 20px;
+            border-radius: 8px; /* Rounded edges */
+            flex: 1; /* Make boxes equally wide */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tendency-box h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .tendency-box p {
+            margin: 5px 0 0;
+            font-size: 1rem;
+        }
+
+        .report {
+            flex-grow: 1;
+            margin-bottom: 20px;
+            overflow-y: auto;
+            max-height: 60%;
+            padding-right: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+
+        .qa-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .qa-section input {
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .qa-section button {
+            padding: 5px 10px;
+            border: none;
+            background: #007BFF;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .right-panel {
+            width: 67%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    padding: 15px; /* Add padding around the video container */
+    background: #f4f4f4; /* Optional: Add a background to the padding area */
+    border-radius: 12px; /* Rounded corners for the container */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for visual appeal */
+}
+
+video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Rounded corners for the video player */
+    overflow: hidden; /* Ensure content doesn't spill out of rounded corners */
+}
+
+#overlayVideoPlayer {
+    position: absolute;
+    bottom: 10px; /* Position from the bottom of the main video player */
+    right: 10px; /* Position from the right of the main video player */
+    width: 150px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 5; /* Ensure it appears above the main video */
+    border: 2px solid white; /* Optional: Add a border for better visibility */
+    border-radius: 8px; /* Rounded corners for the overlay video */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for better visibility */
+}
+
+        .overlay-text {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            color: white;
+            padding: 10px; /* Increase padding for better multiline spacing */
+            border-radius: 4px;
+            font-size: 1rem;
+            z-index: 10;
+            pointer-events: none; /* Allows clicks to pass through to the video */
+            max-width: 300px; /* Limit the width for better readability */
+            white-space: pre-wrap; /* Preserve whitespace and allow multiline wrapping */
+            word-wrap: break-word; /* Break long words to prevent overflow */
+        }
+
+        video {
+            width: 100%;
+            max-height: 500px;
+            margin-bottom: 10px;
+        }
+
+        .table-section {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #fff;
+            max-height: calc(100vh - 560px);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead th {
+            background: #007BFF;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        tbody td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <div class="tendencies">
+                <div class="tendencies-banner">
+                    Success Rate: 47%
+                </div>
+                <div class="tendency-boxes">
+                    <div class="tendency-box">
+                        <h3>Pass</h3>
+                        <p>45%</p>
+                    </div>
+                    <div class="tendency-box">
+                        <h3>Run</h3>
+                        <p>35%</p>
+                    </div>
+                    <div class="tendency-box">
+                        <h3>Play Action</h3>
+                        <p>20%</p>
+                    </div>
+                </div>
+            </div>
+            <div class="report">
+                <h3>AI-Generated Report</h3>
+                <p id="ai-report"></p>
+            </div>
+            <div class="qa-section">
+                <label for="coach-question">Ask a question:</label>
+                <input type="text" id="coach-question" placeholder="Type your question here...">
+                <button id="ask-button">Ask</button>
+                <div id="qa-response"></div>
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <!-- Video Section -->
+            <div class="video-section">
+                <div class="video-container">
+                    <!-- Main YouTube Player -->
+                    <iframe id="videoPlayer" width="100%" height="500" 
+                        src="https://www.youtube.com/embed/SXJLKROD1KQ?si=ZDulK43bKNBm7MIC" 
+                        frameborder="0" allowfullscreen></iframe>
+                    
+                    <!-- Overlay YouTube Player -->
+                    <iframe id="overlayVideoPlayer" width="150" height="100" 
+                        style="position: absolute; bottom: 10px; right: 10px; z-index: 5; border: 2px solid white; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);" 
+                        src="https://www.youtube.com/embed/_your_overlay_video_id_here_" 
+                        frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Table Section -->
+            <div class="table-section">
+                <table id="play-table">
+                    <thead>
+                        <tr>
+                            <th>Play #</th>
+                            <th>Opponent</th>
+                            <th>FP</th>
+                            <th>Gain</th>
+                            <th>O-Formation</th>
+                            <th>D-Formation</th>
+                            <th>Stunt</th>
+                            <th>Blitz</th>
+                            <th>Coverage Family</th>
+                            <th>Route Concept</th>
+                            <th>Blocking Scheme</th>
+                            <th>Protection Scheme</th>
+                            <th>Tempo</th>
+                            <th>X Split</th>
+                            <th>Y Split</th>
+                            <th>Z Split</th>
+                            <th>F Split</th>
+                            <th>H Split</th>
+                            <th>End Align</th>
+                            <th>Motion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be dynamically generated -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const reportElement = document.getElementById("ai-report");
+            const askButton = document.getElementById("ask-button");
+            const questionInput = document.getElementById("coach-question");
+            const videoPlayer = document.getElementById("videoPlayer");
+            const videoSource = document.getElementById("videoSource");
+    
+            const reportText = "The opponent frequently runs 11 personnel with a trips-right formation in 3x1 sets, leveraging their slot receiver for quick passes and screens while stretching defenses horizontally. Against this, they tend to exploit gaps in coverage by targeting the isolated receiver or running outside zone plays to the weak side. Our 3-4 base personnel can counter this by bringing the safety into the box to provide run support and disrupt the RPO game. The safety's presence also allows for flexibility in covering the trips side while maintaining pressure on the quarterback. Prioritizing edge containment and disciplined coverage against their quick passing game will help neutralize their primary strategies.";
+    
+            const videos = [
+                "commanders_play_1.mov",
+                "BoxesFIXED.mov",
+                "CornerZoomed.mov",
+                "LinemanZoomed.mov"
+            ];
+            let currentVideoIndex = 0;
+    
+            function typeText(element, text, speed = 20) {
+                let index = 0;
+                const interval = setInterval(() => {
+                    element.textContent += text[index];
+                    index++;
+                    if (index === text.length) {
+                        clearInterval(interval);
+                    }
+                }, speed);
+            }
+    
+            // Start typing the initial report
+            typeText(reportElement, reportText);
+    
+            askButton.addEventListener("click", () => {
+                const question = questionInput.value.trim();
+                if (!question) {
+                    alert("Please enter a question before asking.");
+                    return;
+                }
+    
+                // Generate a new response paragraph
+                const newParagraph = document.createElement("p");
+                newParagraph.textContent = `Generated response to: "${question}" - This is an example response explaining how to address this scenario.`;
+                
+                // Append the new paragraph to the report
+                const reportContainer = document.querySelector(".report");
+                reportContainer.appendChild(newParagraph);
+    
+                // Clear the input field
+                questionInput.value = "";
+            });
+    
+            // Switch video on video click
+            videoPlayer.addEventListener("click", () => {
+                currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+                videoSource.src = videos[currentVideoIndex];
+                videoPlayer.load();
+                videoPlayer.addEventListener("loadeddata", () => {
+                    videoPlayer.play();
+                }, { once: true }); // The listener will be removed after execution
+            });
+
+
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const mainPlayer = document.getElementById("videoPlayer");
+        const overlayPlayer = document.getElementById("overlayVideoPlayer");
+        const overlayText = document.getElementById("video-overlay");
+
+        // Define YouTube video IDs and overlay text
+        const videos = [
+            { src: "https://www.youtube.com/embed/SXJLKROD1KQ?si=ZDulK43bKNBm7MIC", text: "3x2 Formation\n4-2-5 defense\ntight end X" },
+            { src: "https://www.youtube.com/embed/VIDEO_ID_2", text: "3x2 Formation\n4-2-5 defense\ntight end X" },
+            { src: "https://www.youtube.com/embed/VIDEO_ID_3", text: "27: Quinyon Mitchell\nStart Depth: 5 yards\nDrop Depth: 8 yards\nTechnique: backpedal" },
+            { src: "https://www.youtube.com/embed/VIDEO_ID_4", text: "67: Joe Blanker\nPassset: Right\nVertical Set\nBullRush" }
+        ];
+        let currentVideoIndex = 0;
+
+        // Update main and overlay video on click
+        mainPlayer.addEventListener("click", () => {
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+            mainPlayer.src = videos[currentVideoIndex].src;
+            overlayText.textContent = videos[currentVideoIndex].text;
+        });
+
+        // Set the initial overlay text
+        overlayText.textContent = videos[currentVideoIndex].text;
+    });
+
+</script>
+
+
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            // Typing effect for the AI-Generated Report
+            const reportElement = document.getElementById("ai-report");
+            const reportText = "The opponent frequently runs 11 personnel with a trips-right formation in 3x1 sets, leveraging their slot receiver for quick passes and screens while stretching defenses horizontally. Against this, they tend to exploit gaps in coverage by targeting the isolated receiver or running outside zone plays to the weak side. Our 3-4 base personnel can counter this by bringing the safety into the box to provide run support and disrupt the RPO game. The safety's presence also allows for flexibility in covering the trips side while maintaining pressure on the quarterback. Prioritizing edge containment and disciplined coverage against their quick passing game will help neutralize their primary strategies.";
+
+            // Additional initialization for table and video
+            const videoPlayer = document.getElementById("videoPlayer");
+            const videoSource = document.getElementById("videoSource");
+            const tableBody = document.querySelector("#play-table tbody");
+
+            function generateRandomRow(playNumber) {
+                const opponents = ["Patriots", "Cowboys", "Eagles", "Chiefs"];
+                const oFormations = ["Shotgun", "I-Form", "Singleback", "Pistol"];
+                const dFormations = ["3-4", "4-3", "Nickel"];
+                const random = arr => arr[Math.floor(Math.random() * arr.length)];
+
+                return `
+                    <tr>
+                        <td>${playNumber}</td>
+                        <td>${random(opponents)}</td>
+                        <td>${Math.floor(Math.random() * 81) - 40}</td>
+                        <td>${Math.floor(Math.random() * 10) + 1}</td>
+                        <td>${random(oFormations)}</td>
+                        <td>${random(dFormations)}</td>
+                        <td>None</td>
+                        <td>None</td>
+                        <td>Man</td>
+                        <td>Slant</td>
+                        <td>Zone</td>
+                        <td>Slide</td>
+                        <td>Fast</td>
+                        <td>Wide</td>
+                        <td>Narrow</td>
+                        <td>Stack</td>
+                        <td>Bunch</td>
+                        <td>Wide</td>
+                        <td>Outside</td>
+                        <td>Jet</td>
+                    </tr>
+                `;
+            }
+
+            function populateTable() {
+                let rows = "";
+                for (let i = 1; i <= 50; i++) {
+                    rows += generateRandomRow(i);
+                }
+                tableBody.innerHTML = rows;
+            }
+
+            populateTable();
+        });
+    </script>
+</body>
+</html>

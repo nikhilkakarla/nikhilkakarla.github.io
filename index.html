@@ -23,6 +23,22 @@
         @keyframes blink-caret {
             from, to { border-color: transparent; }
             50% { border-color: white; }
+
+        }
+        .bottom-left-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            z-index: 10; /* Make sure it is above other elements like the video */
         }
     </style>
 </head>
@@ -56,6 +72,7 @@
         </div>
     </div>
     <div class="scroll-label"><p>Built from scratch in HTML, CSS, and Javascript</p></div>
+    <a href="login.html" class="bottom-left-button">Go to Another Page</a>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const name = "NIKHIL KAKARLA";
@@ -73,5 +90,6 @@
             type();
         });
     </script>
+    
 </body>
 </html>
