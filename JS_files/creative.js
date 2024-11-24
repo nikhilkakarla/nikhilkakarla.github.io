@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoTitle = document.getElementById('video-title');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
+    //radnom comment
+    const newVar = 0
 
     const videos = [
         { src: 'https://www.youtube.com/embed/lcIT0JNCZjg?si=8yR-N62mVoo6j07V', title: 'Summer Of Travel (06/01/2024 - 08/15/2024)' },
