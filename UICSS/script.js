@@ -585,6 +585,7 @@ const jsonStrings = [
 ];
 
 // Dictionary to store HTML content for each player
+// Dictionary to store HTML content for each player
 const playerHTMLContent = {
   "player-E1": `
     <h4>Edge 1</h4>
@@ -594,8 +595,8 @@ const playerHTMLContent = {
     <div>
       <label for="stunt-select">Stunt:</label>
       <select id="stunt-select">
-        <option value="inside">Inside</option>
-        <option value="outside">Outside</option>
+        <option value="inside">Ed</option>
+        <option value="outside">Spike</option>
       </select>
     </div>
     <div>
@@ -620,8 +621,8 @@ const playerHTMLContent = {
     <div>
       <label for="stunt-select">Stunt:</label>
       <select id="stunt-select">
-        <option value="inside">Inside</option>
-        <option value="outside">Outside</option>
+        <option value="inside">Ed</option>
+        <option value="outside">Spike</option>
       </select>
     </div>
     <div>
@@ -659,6 +660,12 @@ const playerHTMLContent = {
         <option value="heads-up">Heads Up</option>
         <option value="outside">Outside</option>
       </select>
+      <label for="technique-c1">Technique:</label>
+      <select id="technique-c1">
+        <option value="inside">Flat Control</option>
+        <option value="heads-up">Man</option>
+        <option value="outside">Zone Match</option>
+      </select>
     </div>
   `,
   "player-NS": `
@@ -681,6 +688,12 @@ const playerHTMLContent = {
         <option value="inside">Inside</option>
         <option value="heads-up">Heads Up</option>
         <option value="outside">Outside</option>
+      </select>
+      <label for="technique-c1">Technique:</label>
+      <select id="technique-c1">
+        <option value="inside">Flat Control</option>
+        <option value="heads-up">Man</option>
+        <option value="outside">Zone Match</option>
       </select>
     </div>
   `,
@@ -705,6 +718,12 @@ const playerHTMLContent = {
         <option value="heads-up">Heads Up</option>
         <option value="outside">Outside</option>
       </select>
+      <label for="technique-c1">Technique:</label>
+      <select id="technique-c1">
+        <option value="inside">Flat Control</option>
+        <option value="heads-up">Man</option>
+        <option value="outside">Zone Match</option>
+      </select>
     </div>
   `,
   "player-N": `
@@ -715,7 +734,12 @@ const playerHTMLContent = {
     <div>
       <label for="technique-n">Technique:</label>
       <select id="technique-n">
-        <option value="3-technique">3 Technique</option>
+      <option value="3-technique">0 Technique</option>
+        <option value="3-technique">1 Technique</option>
+        <option value="3-technique">2 Technique</option>
+        <option value="3-technique">2i Technique</option>
+        <option value="4-technique">3 Technique</option>
+        <option value="4-technique">4i Technique</option>
         <option value="4-technique">4 Technique</option>
       </select>
     </div>
@@ -725,6 +749,14 @@ const playerHTMLContent = {
         <option value="bull-rush">Bull Rush</option>
         <option value="swim-move">Swim Move</option>
         <option value="rip-move">Rip Move</option>
+      </select>
+    </div>
+    <div>
+      <label for="stunt-n">Stunt:</label>
+      <select id="pass-rush-move-n">
+        <option value="bull-rush">Spike</option>
+        <option value="swim-move">Loop</option>
+        <option value="rip-move">Nut</option>
       </select>
     </div>
   `,
@@ -1090,4 +1122,64 @@ const playerHTMLContent = {
       </select>
     </div>
   `,
+  "player-FS": `
+    <h4>Free Safety</h4>
+    <div>
+      <a href="#" class="select-player-link">Select Player</a>
+    </div>
+    <div>
+      <label for="hello">Presnap Depth:</label>
+      <select id="run-block-rt">
+        <option value="drive">In the Box</option>
+        <option value="down">On the line</option>
+        <option value="reach">Deep</option>
+        <option value="pull">Outside box</option>
+      </select>
+    </div>
+    <div>
+      <label for="pass-block-rt">Post snap rotation</label>
+      <select id="pass-block-rt">
+        <option value="vertical-set">Middle Third</option>
+        <option value="kick-step">Strong side Half</option>
+        <option value="slide-protection">Weak side Half</option>
+        <option value="anchor">Underneath Flat</option>
+        <option value="screen">Underneath Curl</option>
+        <option value="turnback">Underneath Hook</option>
+      </select>
+    </div>
+  `,
+  "player-SS": `
+    <h4>Strong Safety</h4>
+    <div>
+      <a href="#" class="select-player-link">Select Player</a>
+    </div>
+    <div>
+      <label for="hello">Presnap Depth:</label>
+      <select id="run-block-rt">
+        <option value="drive">In the Box</option>
+        <option value="down">On the line</option>
+        <option value="reach">Deep</option>
+        <option value="pull">Outside box</option>
+      </select>
+    </div>
+    <div>
+      <label for="pass-block-rt">Post snap rotation</label>
+      <select id="pass-block-rt">
+        <option value="vertical-set">Middle Third</option>
+        <option value="kick-step">Strong side Half</option>
+        <option value="slide-protection">Weak side Half</option>
+        <option value="anchor">Underneath Flat</option>
+        <option value="screen">Underneath Curl</option>
+        <option value="turnback">Underneath Hook</option>
+      </select>
+    </div>
+    <div>
+      <label for="pass-block-rt">Coverage Type</label>
+      <select id="pass-block-rt">
+        <option value="vertical-set">Man</option>
+        <option value="kick-step">Zone</option>
+        <option value="slide-protection">Zone Match</option>
+      </select>
+    </div>
+  `
 };

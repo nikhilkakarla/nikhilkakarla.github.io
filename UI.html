@@ -14,13 +14,13 @@
             <div class="section general">
                 <h2>General</h2>
                 <div>
-                    <label for="team">Team to Scout</label>
+                    <h3 for="team">Team to Scout</h3>
                     <select id="team">
                         <option>Baltimore Ravens</option>
                     </select>
                 </div>
                 <div>
-                    <label for="weeks">Weeks</label>
+                    <h3 for="weeks">Weeks</h3>
                     <select id="weeks">
                         <option>All Weeks</option>
                     </select>
@@ -35,27 +35,48 @@
                         <h3>Defensive Settings</h3>
                         <select>
                             <option>Personnel Group</option>
-                            <option>3-3 Nickel</option>
-                            <option>4-2 Nickel</option>
-                            <option>3-4 Base</option>
                             <option>4-3 Base</option>
+                            <option>3-4 Base</option>
+                            <option>3-3 Nickel</option>
                             <option>4-1 Dime</option>
+                            <option>3-2 Dime</option>
                             <option>Goal Line</option>
                         </select>
                         <select>
                             <option>Front</option>
-                            <option>Even Dink</option>
-                            <option>Even Wink</option>
+                            <option>Even</option>
+                            <option>Over</option>
+                            <option>Under</option>
                             <option>Diamond</option>
-                            <option>Under Wink</option>
-                            <option>Over Sink</option>
+                            <option>3-4</option>
+                            <option>KC</option>
+                            <option>SUB</option>
+                            <option>ODD</option>
                         </select>
                         <select>
-                            <option>Alignments</option>
+                            <option>LineBacker Alignments</option>
+                            <option>DINK</option>
+                            <option>WINK</option>
+                            <option>SINK</option>
+                            <option>HIP</option>
+                            <option>MUG</option>
+                            <option>TUFF</option>
+                            <option>CHOKE</option>
+                            <option>JAM</option>
                         </select>
+                        <select>
+                            <option>Secondary Alignments</option>
+                            <option>SIN</option>
+                            <option>FIN</option>
+                            <option>SUP</option>
+                            <option>FUP</option>
+                            <option>SON</option>
+                            <option>FON</option>
+                        </select>
+
                     </div>
                     <div class="sub-section">
-                        <h3>Offensive Settings</h3>
+                        <h3>Offensive Play Settings</h3>
                         <select>
                             <option>Personnel Group</option>
                             <option>1-1 Personnel</option>
@@ -86,24 +107,81 @@
                         <h3>Defensive Settings</h3>
                         <select>
                             <option>Coverage</option>
+                            <option>Cover 1</option>
+                            <option>Cover 3</option>
+                            <option>Cover 9</option>
+                            <option>Cover 2</option>
+                            <option>Cover 2 Man</option>
+                            <option>Cover 4</option>
+                            <option>Cover 6</option>
+                            <option>Cover 8</option>
+                            <option>Cover 0</option>
+                            <option>Cover 7</option>
                         </select>
                         <select>
                             <option>Pressures</option>
+                            <option>Strong Dog</option>
+                            <option>Strong Dog Switch</option>
+                            <option>Weak Dog</option>
+                            <option>Weak Dog Switch</option>
+                            <option>Cross Dog</option>
+                            <option>Saw</option>
+                            <option>Saw Inside</option>
+                            <option>Saw Diamond</option>
+                            <option>Blood</option>
+                            <option>Guts</option>
+                            <option>WAMI</option>
                         </select>
                         <select>
-                            <option>Stunts</option>
+                            <option>Secondary Pressures</option>
+                            <option>Strike</option>
+                            <option>Strike Switch</option>
+                            <option>Strike Inside</option>
+                            <option>Smash</option>
+                            <option>Smash X</option>
+                            <option>Flash</option>
+                            <option>Cat</option>
+                        </select>
+                        <select>
+                            <option>Games</option>
+                            <option>ME</option>
+                            <option>You</option>
+                            <option>Tip</option>
+                            <option>Tap</option>
+                            <option>El Paso</option>
+                            <option>Juarez</option>
+                            <option>Weave</option>
                         </select>
                     </div>
                     <div class="sub-section">
                         <h3>Offensive Settings</h3>
                         <select>
                             <option>Play Type</option>
+                            <option>Run</option>
+                            <option>Pass</option>
+                            <option>Play Action</option>
+                            <option>Screen</option>
+                            <option>Speciality</option>
                         </select>
                         <select>
-                            <option>Route Concepts</option>
+                            <option>Protection Scheme</option>
+                            <option>Java LT/RT</option>
+                            <option>Gone LT/RT</option>
+                            <option>Jet LT/RT</option>
+                            <option>Jaws LT/RT</option>
+                            <option>Jumbo LT/RT</option>
+                            <option>Action Protection</option>
+                            <option>Movement Protection</option>
                         </select>
                         <select>
                             <option>Run Type</option>
+                            <option>Inside Zone</option>
+                            <option>Outside Zone</option>
+                            <option>Gap</option>
+                            <option>Trap</option>
+                            <option>Pin and Pull</option>
+                            <option>Toss Crack</option>
+                            <option>Draw</option>
                         </select>
                     </div>
                 </div>
@@ -113,7 +191,7 @@
             <div class="section situational">
                 <h2>Situational</h2>
                 <div>
-                    <label for="down-distance">Down and Distance</label>
+                    <h3 for="down-distance">Down and Distance</h3>
                     <select id="down-distance">
                         <option>Down and Distance</option>
                         <option>1st and 10</option>
@@ -127,7 +205,7 @@
                     </select>
                 </div>
                 <div>
-                    <label for="yardage">Yardage</label>
+                    <h3 for="yardage">Yardage</h3>
                     <select id="yardage">
                         <option>Yardage</option>
                         <option>Opponent Redzone</option>
@@ -146,7 +224,7 @@
 
         </div>
 
-        <div style="position: absolute; bottom: 10px; left: 10px;">
+        <div style="position: absolute; bottom: -10px; left: 10px;">
             <label for="left-passing-concept">Left Side Passing Concept:</label>
             <select id="left-passing-concept">
                 <option>Stick</option>
@@ -160,7 +238,7 @@
         </div>
 
         <!-- Right Side Passing Concept Dropdown -->
-        <div style="position: absolute; bottom: 10px; right: 10px;">
+        <div style="position: absolute; bottom: -10px; right: 10px;">
             <label for="right-passing-concept">Right Side Passing Concept:</label>
             <select id="right-passing-concept">
                 <option>Stick</option>
@@ -189,7 +267,7 @@
         </div>
         <!-- Bottom-left "Matching Plays" text -->
         <!-- Matching Plays -->
-    <div id="matching-plays" style="position: absolute; bottom: 50px; left: 10px; font-size: 16px; font-weight: bold;">
+    <div id="matching-plays" style="position: absolute; bottom: 60px; left: 25px; font-size: 16px; font-weight: bold;">
         Matching plays: 0
     </div>
     </div>

@@ -1,8 +1,11 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text */
 }
+
 
 .container {
     padding: 20px;
@@ -11,37 +14,55 @@ body {
 .top-bar {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    background-color: #1f1f1f;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .section {
     flex: 1;
-    margin: 0 10px;
+    margin: 5px;
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 h2 {
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 10px;
+    color: #76c7c0; /* Accent color */
 }
 
 h3 {
     font-size: 14px;
     margin-bottom: 5px;
+    color: #b0b0b0;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
     font-size: 12px;
+    color: #b0b0b0;
 }
 
 select {
     width: 100%;
-    padding: 4px;
+    padding: 8px;
     margin-bottom: 10px;
-    font-size: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    font-size: 14px;
+    background-color: #1f1f1f;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #e0e0e0;
+}
+
+select:focus {
+    outline: none;
+    border-color: #76c7c0;
+    box-shadow: 0 0 5px #76c7c0;
 }
 
 .sub-section-row {
@@ -64,6 +85,9 @@ select {
     gap: 10px;
     margin: 20px 0;
     justify-items: center;
+    background-color: #1f1f1f;
+    border: 1px solid #333;
+    border-radius: 10px;
 }
 
 .player {
@@ -83,9 +107,15 @@ select {
 }
 
 button {
-    padding: 8px 16px;
+    padding: 10px 20px;
     font-size: 14px;
+    background-color: #76c7c0;
+    color: #121212;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 
@@ -139,22 +169,27 @@ select {
     height: 400px;
     border: 1px solid #ccc;
     margin-top: 20px;
-    background-color: #f9f9f9;
     overflow: hidden;
 }
 
 .player {
-    font-size: 18;
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #76c7c0;
     border-radius: 50%;
-    background-color: #fff;
-    cursor: grab;
+    width: 30px;
+    height: 30px;
     font-weight: bold;
+    color: #76c7c0;
+    background-color: #121212;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
+}
+
+.player:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #76c7c0;
 }
 
 /* Non-circled players (defensive players) */
@@ -169,24 +204,46 @@ select {
     text-align: center; /* Keep text alignment */
     font-size: 24px; /* Larger font size for non-circled players */
     font-weight: bold; /* Maintain bold text */
-    color: #000; /* Optional: Set a specific text color for contrast */
+    font-weight: bold;
+    color: #76c7c0;
+}
+
+#matching-plays {
+    color: #76c7c0;
 }
 
 .player-popup {
     position: absolute;
     width: 220px;
     padding: 10px;
-    background-color: white;
-    border: 1px solid #ccc;
+    background-color: #1f1f1f;
+    border: 1px solid #76c7c0;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #e0e0e0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
     z-index: 1000;
-  }
-  
-  .player-popup h4 {
+}
+
+.player-popup h4 {
     margin: 0 0 10px 0;
     font-size: 16px;
-  }
+    color: #76c7c0;
+}
+
+.close-popup {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #e0e0e0;
+}
+
+.close-popup:hover {
+    color: #76c7c0;
+}
   
   .player-popup ul {
     list-style: none;
@@ -205,20 +262,5 @@ select {
   
   .player-popup ul li a:hover {
     text-decoration: underline;
-  }
-  
-  .close-popup {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: #999;
-  }
-  
-  .close-popup:hover {
-    color: #333;
   }
   

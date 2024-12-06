@@ -6,184 +6,185 @@
     <title>NFL Coach Play Analysis</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
+            background: #121212;
+            color: #e0e0e0;
             display: flex;
             flex-direction: column;
         }
-
+    
         .container {
             display: flex;
             height: 100vh;
         }
-
+    
         .left-panel {
             width: 33%;
-            background: #f4f4f4;
+            background: #1e1e2e;
             padding: 20px;
             display: flex;
             flex-direction: column;
+            box-shadow: 3px 0 5px rgba(0, 0, 0, 0.5);
         }
-
+    
         .tendencies {
-            display: flex;
-            flex-direction: column;
             margin-bottom: 20px;
         }
-
+    
         .tendencies-banner {
-            background: #007BFF;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
             color: white;
             text-align: center;
             padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
             font-weight: bold;
         }
-
+    
         .tendency-boxes {
             display: flex;
             justify-content: space-between;
-            gap: 10px; /* Spacing between boxes */
+            gap: 10px;
         }
-
+    
         .tendency-box {
             text-align: center;
-            background: #ddd;
+            background: #282a36;
             padding: 20px;
-            border-radius: 8px; /* Rounded edges */
-            flex: 1; /* Make boxes equally wide */
+            border-radius: 12px;
+            flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
         }
-
+    
+        .tendency-box:hover {
+            transform: scale(1.05);
+        }
+    
         .tendency-box h3 {
             margin: 0;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
-
+    
         .tendency-box p {
             margin: 5px 0 0;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            color: #a0aec0;
         }
-
+    
         .report {
             flex-grow: 1;
             margin-bottom: 20px;
             overflow-y: auto;
             max-height: 60%;
-            padding-right: 10px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1rem;
+            padding: 10px;
+            background: #1e1e2e;
+            border-radius: 12px;
             line-height: 1.5rem;
         }
-
-        .qa-section {
-            display: flex;
-            flex-direction: column;
-        }
-
+    
         .qa-section input {
             margin-bottom: 10px;
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            padding: 10px;
+            background: #1e1e2e;
+            border: 1px solid #3c4047;
+            border-radius: 8px;
+            color: #e0e0e0;
         }
-
+    
         .qa-section button {
-            padding: 5px 10px;
+            padding: 10px 15px;
             border: none;
-            background: #007BFF;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
             color: white;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s ease;
         }
-
+    
+        .qa-section button:hover {
+            background: linear-gradient(90deg, #2575fc, #6a11cb);
+        }
+    
         .right-panel {
             width: 67%;
             display: flex;
             flex-direction: column;
+            background: #121212;
         }
-
+    
         .video-container {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    padding: 15px; /* Add padding around the video container */
-    background: #f4f4f4; /* Optional: Add a background to the padding area */
-    border-radius: 12px; /* Rounded corners for the container */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for visual appeal */
-}
-
-video {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 8px; /* Rounded corners for the video player */
-    overflow: hidden; /* Ensure content doesn't spill out of rounded corners */
-}
-
-#overlayVideoPlayer {
-    position: absolute;
-    bottom: 10px; /* Position from the bottom of the main video player */
-    right: 10px; /* Position from the right of the main video player */
-    width: 150px; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
-    z-index: 5; /* Ensure it appears above the main video */
-    border: 2px solid white; /* Optional: Add a border for better visibility */
-    border-radius: 8px; /* Rounded corners for the overlay video */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for better visibility */
-}
-
-        .overlay-text {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-            color: white;
-            padding: 10px; /* Increase padding for better multiline spacing */
-            border-radius: 4px;
-            font-size: 1rem;
-            z-index: 10;
-            pointer-events: none; /* Allows clicks to pass through to the video */
-            max-width: 300px; /* Limit the width for better readability */
-            white-space: pre-wrap; /* Preserve whitespace and allow multiline wrapping */
-            word-wrap: break-word; /* Break long words to prevent overflow */
+            position: relative;
+            width: 100%;
+            background: #1e1e2e;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
         }
-
+    
         video {
             width: 100%;
-            max-height: 500px;
-            margin-bottom: 10px;
+            border-radius: 12px;
         }
-
+    
+        #overlayVideoPlayer {
+            border: 2px solid #6a11cb;
+        }
+    
         .table-section {
             flex: 1;
             overflow-y: auto;
             padding: 20px;
-            background: #fff;
-            max-height: calc(100vh - 560px);
+            background: #1e1e2e;
+            border-radius: 12px;
         }
-
+    
         table {
             width: 100%;
             border-collapse: collapse;
         }
-
+    
         thead th {
-            background: #007BFF;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
             color: white;
-            padding: 10px;
+            padding: 12px;
             text-align: left;
+            font-size: 1rem;
         }
-
+    
         tbody td {
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid #3c4047;
+            color: #a0aec0;
+            font-size: 0.95rem;
+        }
+    
+        tbody tr:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .overlay-text {
+            position: absolute;
+            top: 10px; /* Adjust as needed */
+            right: 10px; /* Adjust as needed */
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            color: #ffffff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+            z-index: 10;
+            pointer-events: none; /* Allows clicks to pass through to the video */
+            white-space: pre-wrap; /* Supports multiline text */
+            word-wrap: break-word; /* Prevents overflow */
         }
     </style>
 </head>
@@ -222,6 +223,13 @@ video {
             </div>
         </div>
 
+        <div id="text-overlay" class="overlay-text">
+            <!-- Add default text or leave it empty -->
+            O-Formation: 3x2 Gun Trips
+            Front: SUB EVEN HIP 
+            Stunts: None
+        </div>
+
         <!-- Right Panel -->
         <div class="right-panel">
             <!-- Video Section -->
@@ -250,9 +258,10 @@ video {
                             <th>FP</th>
                             <th>Gain</th>
                             <th>O-Formation</th>
-                            <th>D-Formation</th>
-                            <th>Stunt</th>
-                            <th>Blitz</th>
+                            <th>D-Front</th>
+                            <th>D-LineBacker</th>
+                            <th>D-Secondary</th>
+                            <th>Pressures</th>
                             <th>Coverage Family</th>
                             <th>Route Concept</th>
                             <th>Blocking Scheme</th>
@@ -380,34 +389,47 @@ video {
             const videoSource = document.getElementById("videoSource");
             const tableBody = document.querySelector("#play-table tbody");
 
+            // Generate a random row for the table
             function generateRandomRow(playNumber) {
+                const randomFromArray = (arr) => arr[Math.floor(Math.random() * arr.length)];
                 const opponents = ["Patriots", "Cowboys", "Eagles", "Chiefs"];
                 const oFormations = ["Shotgun", "I-Form", "Singleback", "Pistol"];
-                const dFormations = ["3-4", "4-3", "Nickel"];
-                const random = arr => arr[Math.floor(Math.random() * arr.length)];
+                const dFormations = ["Over", "Under", "Even", "KC","34","Odd","Diamond"];
+                const dLineBackers = ["SinK", "Wink", "Dink","Mug","Jam","Choke","Tuff","Hip"];
+                const dSecondary = ["Sin", "Fin", "Sup", "Fup","Son","Fon"];
+                const pressures = ["Dog","Strike","Smash","Flash","Crash"]
+                const coverages = ["Man", "Zone", "Match"];
+                const routes = ["Slant", "Post", "Flat", "Seam", "Curl"];
+                const blockingSchemes = ["Zone", "Gap", "Man"];
+                const protections = ["Slide", "Full", "Half"];
+                const tempos = ["Fast", "Slow", "Normal"];
+                const splits = ["Wide", "Narrow", "Stack", "Bunch", "Tight"];
+                const alignments = ["Inside", "Outside", "Flex"];
+                const motions = ["Jet", "Orbit", "None"];
 
                 return `
                     <tr>
                         <td>${playNumber}</td>
-                        <td>${random(opponents)}</td>
-                        <td>${Math.floor(Math.random() * 81) - 40}</td>
-                        <td>${Math.floor(Math.random() * 10) + 1}</td>
-                        <td>${random(oFormations)}</td>
-                        <td>${random(dFormations)}</td>
-                        <td>None</td>
-                        <td>None</td>
-                        <td>Man</td>
-                        <td>Slant</td>
-                        <td>Zone</td>
-                        <td>Slide</td>
-                        <td>Fast</td>
-                        <td>Wide</td>
-                        <td>Narrow</td>
-                        <td>Stack</td>
-                        <td>Bunch</td>
-                        <td>Wide</td>
-                        <td>Outside</td>
-                        <td>Jet</td>
+                        <td>${randomFromArray(opponents)}</td>
+                        <td>${Math.floor(Math.random() * 101)}</td>
+                        <td>${Math.floor(Math.random() * 15) + 1}</td>
+                        <td>${randomFromArray(oFormations)}</td>
+                        <td>${randomFromArray(dFormations)}</td>
+                        <td>${randomFromArray(dLineBackers)}</td>
+                        <td>${randomFromArray(dSecondary)}</td>
+                        <td>${randomFromArray(pressures)}</td>
+                        <td>${randomFromArray(coverages)}</td>
+                        <td>${randomFromArray(routes)}</td>
+                        <td>${randomFromArray(blockingSchemes)}</td>
+                        <td>${randomFromArray(protections)}</td>
+                        <td>${randomFromArray(tempos)}</td>
+                        <td>${randomFromArray(splits)}</td>
+                        <td>${randomFromArray(splits)}</td>
+                        <td>${randomFromArray(splits)}</td>
+                        <td>${randomFromArray(splits)}</td>
+                        <td>${randomFromArray(splits)}</td>
+                        <td>${randomFromArray(alignments)}</td>
+                        <td>${randomFromArray(motions)}</td>
                     </tr>
                 `;
             }
