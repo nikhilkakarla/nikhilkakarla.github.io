@@ -47,12 +47,12 @@
             border-right: 1px solid #3c4047;
         }
 
-        .folder, .subfolder {
+        .folder, .subfolder, .cutup {
             margin-bottom: 10px;
             cursor: pointer;
         }
 
-        .folder h3, .subfolder h4 {
+        .folder h3, .subfolder h4, .cutup h4 {
             margin: 0;
             padding: 10px;
             background: #282a36;
@@ -60,8 +60,13 @@
             transition: background 0.2s ease;
         }
 
-        .folder h3:hover, .subfolder h4:hover {
+        .folder h3:hover, .subfolder h4:hover, .cutup h4:hover {
             background: #3c4047;
+        }
+
+        .cutup h4 {
+            font-style: italic;
+            background: #44475a;
         }
 
         .add-button {
@@ -92,7 +97,6 @@
     </div>
 
     <div class="container">
-        <!-- Coaches Column -->
         <div class="column" id="coaches-column">
             <div class="folder">
                 <h3>Coach Smith</h3>
@@ -105,25 +109,9 @@
             </div>
         </div>
 
-        <!-- Subdirectories Column -->
-        <div class="column" id="subdirectories-column">
-            <!-- Example Placeholder Content -->
-        </div>
-
-        <!-- Sub-subdirectories Column -->
-        <div class="column" id="sub-subdirectories-column">
-            <!-- Example Placeholder Content -->
-        </div>
-
-        <!-- Sub-subdirectories Column -->
-        <div class="column" id="sub-subdirectories-column">
-            <!-- Example Placeholder Content -->
-        </div>
-
-        <!-- Sub-subdirectories Column -->
-        <div class="column" id="sub-subdirectories-column">
-            <!-- Example Placeholder Content -->
-        </div>
+        <div class="column" id="subdirectories-column"></div>
+        <div class="column" id="sub-subdirectories-column"></div>
+        <div class="column" id="cutups-column"></div>
     </div>
 
     <a href="UI.html" class="add-button">Create New Cutup</a>
@@ -132,48 +120,58 @@
         const coachesColumn = document.getElementById('coaches-column');
         const subdirectoriesColumn = document.getElementById('subdirectories-column');
         const subSubdirectoriesColumn = document.getElementById('sub-subdirectories-column');
+        const cutupsColumn = document.getElementById('cutups-column');
 
         const data = {
             "Coach Smith": [
-                { name: "1st & 10", sub: ["Personnel A", "Personnel B"] },
-                { name: "3rd & Long", sub: ["Personnel C"] },
-                { name: "Red Zone", sub: ["Personnel D", "Personnel E"] }
+                { name: "1st & 10", sub: ["Personnel A", "Personnel B"], cutups: ["cutup1.cutup", "cutup2.cutup"] },
+                { name: "3rd & Long", sub: ["Personnel C"], cutups: ["cutup3.cutup"] },
+                { name: "Red Zone", sub: ["Personnel D", "Personnel E"], cutups: ["cutup4.cutup", "cutup5.cutup"] }
             ],
             "Coach Johnson": [
-                { name: "Goal Line", sub: ["Personnel F"] },
-                { name: "2nd & Short", sub: [] },
-                { name: "4th & Inches", sub: ["Personnel G"] }
+                { name: "Goal Line", sub: ["Personnel F"], cutups: ["cutup6.cutup"] },
+                { name: "2nd & Short", sub: [], cutups: ["cutup7.cutup"] },
+                { name: "4th & Inches", sub: ["Personnel G"], cutups: ["cutup8.cutup"] }
             ],
             "Coach Davis": [
-                { name: "Play Action", sub: ["Personnel H"] },
-                { name: "Spread Formation", sub: [] },
-                { name: "Hail Mary", sub: ["Personnel I", "Personnel J"] }
+                { name: "Play Action", sub: ["Personnel H"], cutups: ["cutup9.cutup"] },
+                { name: "Spread Formation", sub: [], cutups: ["cutup10.cutup"] },
+                { name: "Hail Mary", sub: ["Personnel I", "Personnel J"], cutups: ["cutup11.cutup", "cutup12.cutup"] }
             ]
         };
 
         function createSubdirectories(coachName) {
             subdirectoriesColumn.innerHTML = '';
             subSubdirectoriesColumn.innerHTML = '';
+            cutupsColumn.innerHTML = '';
 
             data[coachName].forEach(item => {
                 const subFolder = document.createElement('div');
                 subFolder.classList.add('subfolder');
                 subFolder.innerHTML = `<h4>${item.name}</h4>`;
                 subFolder.addEventListener('click', () => {
-                    createSubSubdirectories(item.sub);
+                    createSubSubdirectories(item.sub, item.cutups);
                 });
                 subdirectoriesColumn.appendChild(subFolder);
             });
         }
 
-        function createSubSubdirectories(subItems) {
+        function createSubSubdirectories(subItems, cutups) {
             subSubdirectoriesColumn.innerHTML = '';
+            cutupsColumn.innerHTML = '';
 
             subItems.forEach(subItem => {
                 const subSubFolder = document.createElement('div');
                 subSubFolder.classList.add('subfolder');
                 subSubFolder.innerHTML = `<h4>${subItem}</h4>`;
                 subSubdirectoriesColumn.appendChild(subSubFolder);
+            });
+
+            cutups.forEach(cutup => {
+                const cutupElement = document.createElement('div');
+                cutupElement.classList.add('cutup');
+                cutupElement.innerHTML = `<h4>${cutup}</h4>`;
+                cutupsColumn.appendChild(cutupElement);
             });
         }
 
