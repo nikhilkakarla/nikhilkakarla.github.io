@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic File Catalogue</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background: #121212;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .menu-bar {
+            background: #1e1e2e;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .menu-bar h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .column {
+            flex: 1;
+            padding: 20px;
+            background: #1e1e2e;
+            overflow-y: auto;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .column:not(:last-child) {
+            border-right: 1px solid #3c4047;
+        }
+
+        .folder, .subfolder {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .folder h3, .subfolder h4 {
+            margin: 0;
+            padding: 10px;
+            background: #282a36;
+            border-radius: 5px;
+            transition: background 0.2s ease;
+        }
+
+        .folder h3:hover, .subfolder h4:hover {
+            background: #3c4047;
+        }
+
+        .add-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .add-button:hover {
+            background: linear-gradient(90deg, #2575fc, #6a11cb);
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-bar">
+        <h1>Play Data Catalogue</h1>
+    </div>
+
+    <div class="container">
+        <!-- Coaches Column -->
+        <div class="column" id="coaches-column">
+            <div class="folder">
+                <h3>Coach Smith</h3>
+            </div>
+            <div class="folder">
+                <h3>Coach Johnson</h3>
+            </div>
+            <div class="folder">
+                <h3>Coach Davis</h3>
+            </div>
+        </div>
+
+        <!-- Subdirectories Column -->
+        <div class="column" id="subdirectories-column">
+            <!-- Example Placeholder Content -->
+        </div>
+
+        <!-- Sub-subdirectories Column -->
+        <div class="column" id="sub-subdirectories-column">
+            <!-- Example Placeholder Content -->
+        </div>
+
+        <!-- Sub-subdirectories Column -->
+        <div class="column" id="sub-subdirectories-column">
+            <!-- Example Placeholder Content -->
+        </div>
+
+        <!-- Sub-subdirectories Column -->
+        <div class="column" id="sub-subdirectories-column">
+            <!-- Example Placeholder Content -->
+        </div>
+    </div>
+
+    <a href="UI.html" class="add-button">Create New Cutup</a>
+
+    <script>
+        const coachesColumn = document.getElementById('coaches-column');
+        const subdirectoriesColumn = document.getElementById('subdirectories-column');
+        const subSubdirectoriesColumn = document.getElementById('sub-subdirectories-column');
+
+        const data = {
+            "Coach Smith": [
+                { name: "1st & 10", sub: ["Personnel A", "Personnel B"] },
+                { name: "3rd & Long", sub: ["Personnel C"] },
+                { name: "Red Zone", sub: ["Personnel D", "Personnel E"] }
+            ],
+            "Coach Johnson": [
+                { name: "Goal Line", sub: ["Personnel F"] },
+                { name: "2nd & Short", sub: [] },
+                { name: "4th & Inches", sub: ["Personnel G"] }
+            ],
+            "Coach Davis": [
+                { name: "Play Action", sub: ["Personnel H"] },
+                { name: "Spread Formation", sub: [] },
+                { name: "Hail Mary", sub: ["Personnel I", "Personnel J"] }
+            ]
+        };
+
+        function createSubdirectories(coachName) {
+            subdirectoriesColumn.innerHTML = '';
+            subSubdirectoriesColumn.innerHTML = '';
+
+            data[coachName].forEach(item => {
+                const subFolder = document.createElement('div');
+                subFolder.classList.add('subfolder');
+                subFolder.innerHTML = `<h4>${item.name}</h4>`;
+                subFolder.addEventListener('click', () => {
+                    createSubSubdirectories(item.sub);
+                });
+                subdirectoriesColumn.appendChild(subFolder);
+            });
+        }
+
+        function createSubSubdirectories(subItems) {
+            subSubdirectoriesColumn.innerHTML = '';
+
+            subItems.forEach(subItem => {
+                const subSubFolder = document.createElement('div');
+                subSubFolder.classList.add('subfolder');
+                subSubFolder.innerHTML = `<h4>${subItem}</h4>`;
+                subSubdirectoriesColumn.appendChild(subSubFolder);
+            });
+        }
+
+        document.querySelectorAll('.folder h3').forEach(folder => {
+            folder.addEventListener('click', () => {
+                const coachName = folder.textContent;
+                createSubdirectories(coachName);
+            });
+        });
+    </script>
+</body>
+</html>
