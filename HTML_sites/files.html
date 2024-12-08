@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game and Play IDs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            cursor: pointer;
+            margin: 5px 0;
+        }
+        li:hover {
+            text-decoration: underline;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Game and Play Files</h1>
+    <table>
+        <tr>
+            <th>Game IDs</th>
+            <th>Play IDs</th>
+        </tr>
+        <tr>
+            <td>
+                <ul id="game-id-list"></ul>
+            </td>
+            <td id="play-id-container"></td>
+        </tr>
+    </table>
+
+    <script>
+        // Paste your list of HTML file IDs here
+        const fileIds = ['90_2022091104_2952.html', '73_2022091104_2468.html', '30_2022091104_999.html', '119_2022091104_3980.html', '34_2022091104_1115.html', '42_2022091104_1380.html', '18_2022091104_580.html', '47_2022091104_1528.html', '87_2022091104_2877.html', '27_2022091104_910.html', '104_2022091104_3391.html', '113_2022091104_3754.html', '121_2022091104_4025.html', '94_2022091104_3037.html', '91_2022091104_2974.html', '76_2022091104_2537.html', '10_2022091104_343.html', '46_2022091104_1502.html', '54_2022091104_1847.html', '38_2022091104_1228.html', '64_2022091104_2130.html', '99_2022091104_3204.html', '102_2022091104_3307.html', '57_2022091104_1917.html', '127_2022091104_4197.html', '122_2022091104_4046.html', '24_2022091104_803.html', '92_2022091104_2995.html', '117_2022091104_3899.html', '50_2022091104_1660.html', '29_2022091104_977.html', '70_2022091104_2329.html', '125_2022091104_4121.html', '78_2022091104_2604.html', '23_2022091104_777.html', '131_2022091104_4334.html', '11_2022091104_369.html', '89_2022091104_2928.html', '45_2022091104_1481.html', '25_2022091104_865.html', '62_2022091104_2047.html', '74_2022091104_2492.html', '66_2022091104_2190.html', '12_2022091104_390.html', '43_2022091104_1436.html', '17_2022091104_558.html', '128_2022091104_4221.html', '110_2022091104_3662.html', '39_2022091104_1273.html', '4_2022091104_128.html', '36_2022091104_1183.html', '8_2022091104_267.html', '20_2022091104_625.html', 'files.html', '130_2022091104_4313.html', '9_2022091104_288.html', '55_2022091104_1871.html', '114_2022091104_3776.html', '31_2022091104_1020.html', '51_2022091104_1713.html', '129_2022091104_4292.html', '6_2022091104_217.html', '80_2022091104_2662.html', '5_2022091104_149.html', '63_2022091104_2109.html', '15_2022091104_488.html', '41_2022091104_1347.html', '7_2022091104_238.html', '103_2022091104_3369.html', '52_2022091104_1768.html', '69_2022091104_2307.html', '106_2022091104_3502.html', '77_2022091104_2558.html', '124_2022091104_4099.html', '79_2022091104_2641.html', '32_2022091104_1041.html', '13_2022091104_412.html', '115_2022091104_3821.html', '61_2022091104_2007.html', '135_2022091104_4469.html', '48_2022091104_1557.html', '1_2022091104_58.html', '60_2022091104_1986.html', '93_2022091104_3016.html', '53_2022091104_1826.html', '71_2022091104_2385.html', '84_2022091104_2781.html', '133_2022091104_4410.html', '118_2022091104_3956.html', '26_2022091104_889.html', '21_2022091104_689.html', '3_2022091104_107.html', '72_2022091104_2447.html', '67_2022091104_2228.html', '107_2022091104_3572.html', '16_2022091104_536.html', '35_2022091104_1136.html', '101_2022091104_3286.html', '82_2022091104_2736.html', '68_2022091104_2269.html', '49_2022091104_1634.html', '95_2022091104_3059.html', '28_2022091104_953.html', '59_2022091104_1962.html', '126_2022091104_4176.html', '116_2022091104_3842.html', '44_2022091104_1460.html', '136_2022091104_4513.html', '40_2022091104_1325.html', '75_2022091104_2516.html', '37_2022091104_1207.html', '85_2022091104_2807.html', '65_2022091104_2154.html', '108_2022091104_3596.html', '109_2022091104_3640.html', '58_2022091104_1938.html', '33_2022091104_1094.html', '120_2022091104_4001.html', '14_2022091104_462.html', '2_2022091104_86.html', '83_2022091104_2760.html', '132_2022091104_4372.html', '96_2022091104_3122.html', '123_2022091104_4075.html', '88_2022091104_2906.html', '134_2022091104_4448.html', '56_2022091104_1895.html', '97_2022091104_3148.html', '19_2022091104_604.html', '22_2022091104_713.html', '86_2022091104_2829.html', '111_2022091104_3709.html', '105_2022091104_3434.html', '100_2022091104_3232.html', '112_2022091104_3730.html', '81_2022091104_2683.html', '98_2022091104_3172.html'];
+
+        // Parse the file IDs into a mapping of game IDs to play IDs
+        const gamePlayMapping = {};
+        fileIds.forEach(fileName => {
+            const match = fileName.match(/(\d+)_(\d+)_(\d+)\.html/);
+            if (match) {
+                const [, prefix, gameId, playId] = match;
+                if (!gamePlayMapping[gameId]) {
+                    gamePlayMapping[gameId] = [];
+                }
+                gamePlayMapping[gameId].push({
+                    file: fileName,
+                    playId: parseInt(playId, 10) // Convert playId to number for sorting
+                });
+            }
+        });
+
+        // Populate the game ID list
+        const gameIdList = document.getElementById('game-id-list');
+        for (const gameId in gamePlayMapping) {
+            const listItem = document.createElement('li');
+            listItem.textContent = gameId;
+            listItem.onclick = () => showPlayIds(gameId, gamePlayMapping[gameId]);
+            gameIdList.appendChild(listItem);
+        }
+
+        // Show play IDs for the selected game ID
+        function showPlayIds(gameId, playIds) {
+            const playIdContainer = document.getElementById('play-id-container');
+            playIdContainer.innerHTML = ''; // Clear existing content
+
+            // Sort playIds by their numeric value
+            playIds.sort((a, b) => a.playId - b.playId);
+
+            const table = document.createElement('table');
+            playIds.forEach(({ file, playId }, index) => {
+                const row = document.createElement('tr');
+                const cell = document.createElement('td');
+                const link = document.createElement('a');
+                link.href = file;
+                link.target = '_blank';
+                link.textContent = `Play: ${file}`;
+                cell.appendChild(link);
+                row.appendChild(cell);
+                table.appendChild(row);
+            });
+            playIdContainer.appendChild(table);
+        }
+    </script>
+</body>
+</html>
