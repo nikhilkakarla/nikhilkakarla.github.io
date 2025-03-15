@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const newVar = 0
 
     const videos = [
+        { src: 'https://www.youtube.com/embed/l63MZBVRfs0?si=O7ZqYf6HbdnYYfqk', title: 'Vail (12/01/25 - 2/14/25)'},
         { src: 'https://www.youtube.com/embed/lcIT0JNCZjg?si=8yR-N62mVoo6j07V', title: 'Summer Of Travel (06/01/2024 - 08/15/2024)' },
         { src: 'https://www.youtube.com/embed/H6uiZ1IZhfA', title: 'Second Semester Senior Year (01/01/2024 - 06/01/2024)' },
         { src: 'https://www.youtube.com/embed/Cq99woykFB4', title: 'First Semester Senior Year (09/01/2023 - 01/01/2024)' },
