@@ -161,6 +161,11 @@ nav ul li a:hover {
         padding: 16px 20px;
     }
 
+    nav {
+        overflow: hidden;
+        min-width: 0;
+    }
+
     nav ul {
         flex-wrap: nowrap;
         overflow-x: auto;
@@ -204,6 +209,11 @@ nav ul li a:hover {
 @media (max-width: 480px) {
     .navbar {
         padding: 14px 16px;
+    }
+
+    nav {
+        overflow: hidden;
+        min-width: 0;
     }
 
     nav ul {
