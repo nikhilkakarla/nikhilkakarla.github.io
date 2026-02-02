@@ -315,8 +315,20 @@ nav ul li a:hover {
     }
 
     nav ul {
-        flex-wrap: wrap;
-        gap: 6px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+        padding-bottom: 4px;
+    }
+
+    nav ul::-webkit-scrollbar {
+        display: none;
+    }
+
+    nav ul li {
+        flex-shrink: 0;
     }
 
     nav ul li a {
@@ -331,7 +343,19 @@ nav ul li a:hover {
     }
 
     nav ul {
-        gap: 4px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 6px;
+    }
+
+    nav ul::-webkit-scrollbar {
+        display: none;
+    }
+
+    nav ul li {
+        flex-shrink: 0;
     }
 
     nav ul li a {
