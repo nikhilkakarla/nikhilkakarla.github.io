@@ -26,44 +26,47 @@
     </header>
     <div class="all-content">
         <div class="video-player-container">
-            <button class="switch-btn" id="prev-btn">&#9664; Last</button>
+            <button class="switch-btn" id="prev-btn">&#9664;</button>
             <div class="video-wrapper">
-                <iframe id="video-player" src="https://www.youtube.com/embed/l63MZBVRfs0?si=O7ZqYf6HbdnYYfqk" frameborder="0" allowfullscreen autoplay="1"></iframe>
+                <iframe id="video-player"
+                    src="https://www.youtube.com/embed/l63MZBVRfs0?rel=0&modestbranding=1"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
                 <p id="video-title">Vail (12/01/25 - 2/14/25)</p>
             </div>
-            <button class="switch-btn" id="next-btn">Next &#9654;</button>
+            <button class="switch-btn" id="next-btn">&#9654;</button>
         </div>
 
-        <!-- Video Thumbnails Section -->
         <div class="video-thumbnails">
             <div class="thumbnail" data-index="0">
-                <img src="montages/Cover Pics/VailPic.png" alt="Video 1">
+                <img src="montages/Cover Pics/VailPic.png" alt="Vail">
             </div>
             <div class="thumbnail" data-index="1">
-                <img src="montages/Cover Pics/SummerOfTravel.png" alt="Video 2">
+                <img src="montages/Cover Pics/SummerOfTravel.png" alt="Summer Of Travel">
             </div>
             <div class="thumbnail" data-index="2">
-                <img src="montages/Cover Pics/SecondSemPic.png" alt="Video 3">
+                <img src="montages/Cover Pics/SecondSemPic.png" alt="Second Semester">
             </div>
             <div class="thumbnail" data-index="3">
-                <img src="montages/Cover Pics/FirstSemPic.png" alt="Video 4">
+                <img src="montages/Cover Pics/FirstSemPic.png" alt="First Semester">
             </div>
             <div class="thumbnail" data-index="4">
-                <img src="montages/Cover Pics/Summer2023Pic.png" alt="Video 5">
+                <img src="montages/Cover Pics/Summer2023Pic.png" alt="Summer 2023">
             </div>
             <div class="thumbnail" data-index="5">
-                <img src="montages/Cover Pics/GrimmentzPic.png" alt="Video 6">
+                <img src="montages/Cover Pics/GrimmentzPic.png" alt="Grimmentz">
             </div>
             <div class="thumbnail" data-index="6">
-                <img src="montages/Cover Pics/PowderChasersPic.png" alt="Video 7">
+                <img src="montages/Cover Pics/PowderChasersPic.png" alt="Powder Chasers">
             </div>
             <div class="thumbnail" data-index="7">
-                <img src="montages/Cover Pics/SkydivingPic.png" alt="Video 8">
+                <img src="montages/Cover Pics/SkydivingPic.png" alt="Skydiving">
             </div>
         </div>
 
         <div class="creative-projects">
-            <h2>Additional Creative Projects</h2>
+            <h2>Music</h2>
             <div class="project-grid">
                 <div class="project">
                     <p>Everything I do, I do for you</p>
@@ -79,9 +82,6 @@
                         Your browser does not support the audio element.
                     </audio>
                 </div>
-                <div class="project">
-                    <p>Project 3</p>
-                </div>
             </div>
         </div>
 
@@ -89,14 +89,11 @@
             <div id="title">Everywhere I Have Been</div>
             <div id="map"></div>
         </div>
-
-        <div class="scroll-label"><p>Scroll for more!</p></div>
     </div>
 
-    <script src="JS_files/creative.js"></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="JS_files/creative.js"></script>
     <script>
-        // Define a custom icon
         const pinIcon = L.icon({
             iconUrl: 'images/pin_icon.png',
             iconSize: [15, 30],
@@ -104,15 +101,12 @@
             popupAnchor: [0, -41]
         });
 
-        // Initialize the map
         const map = L.map('map').setView([20, 0], 2);
 
-        // Add a tile layer
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
         }).addTo(map);
 
-        // Predefined pins
         const travelLocations = [
             {lat: 42.360081, lon: -71.058884, description: "Boston 2024"},
             {lat: 41.668789, lon: -70.296242, description: "Cape Cod 2023"},
@@ -127,9 +121,9 @@
             {lat: 39.153419, lon: -74.692902, description: "Sea Isle City 2023"},
             {lat: 38.907192, lon: -77.036873, description: "Washington DC 2024"},
             {lat: 25.755496, lon: -80.256341, description: "Miami 2024"},
-            {lat:33.442985, lon:-112.073686, description: "Pheonix 2019"},
-            {lat:30.256070, lon:-97.742712, description: "Austin 2019"},
-            {lat:33.693255, lon:-78.881691, description: "Myrtle Beach 2020"},
+            {lat: 33.442985, lon: -112.073686, description: "Phoenix 2019"},
+            {lat: 30.256070, lon: -97.742712, description: "Austin 2019"},
+            {lat: 33.693255, lon: -78.881691, description: "Myrtle Beach 2020"},
             {lat: 39.775200, lon: -89.645999, description: "Springfield 2024"},
             {lat: 18.582219, lon: -68.357970, description: "Punta Cana 2024"},
             {lat: 32.776665, lon: -96.796989, description: "Dallas 2024"},
@@ -151,9 +145,9 @@
             {lat: 46.020714, lon: 7.749117, description: "Zermatt 2024"},
             {lat: 46.624329, lon: 8.034030, description: "Grindelwald 2024"},
             {lat: 48.139130, lon: 11.580220, description: "Munich 2024"},
-            {lat: 51.5073219, lon: -0.1276474, description: 'London 2024'},
-            {lat: 48.8566969, lon: 2.3514616, description: 'Paris 2024'},
-            {lat: 40.7127281, lon: -74.0060152, description: 'New York City 2024'},
+            {lat: 51.5073219, lon: -0.1276474, description: "London 2024"},
+            {lat: 48.8566969, lon: 2.3514616, description: "Paris 2024"},
+            {lat: 40.7127281, lon: -74.0060152, description: "New York City 2024"},
             {lat: 40.550911, lon: 14.242930, description: "Capri 2024"},
             {lat: -22.928126, lon: -43.178643, description: "Rio De Janeiro 2019"},
             {lat: -23.550938, lon: -46.638772, description: "Sao Paulo 2019"},
@@ -161,8 +155,8 @@
             {lat: 18.433218, lon: -66.065162, description: "San Juan 2022"},
             {lat: 47.594323, lon: -122.331516, description: "Seattle 2019"},
             {lat: 45.517874, lon: -122.680196, description: "Portland 2019"},
-            {lat: 40.748924, lon: -111.900258, description: "Salt Lake City "},
-            {lat: 39.704859, lon: -104.990583, description: "Denve 2019"},
+            {lat: 40.748924, lon: -111.900258, description: "Salt Lake City"},
+            {lat: 39.704859, lon: -104.990583, description: "Denver 2019"},
             {lat: 35.418562, lon: -97.443576, description: "Oklahoma City 2010"},
             {lat: 36.095882, lon: -86.703768, description: "Nashville 2022"},
             {lat: 41.832101, lon: -87.639110, description: "Chicago 2021"},
@@ -172,12 +166,12 @@
             {lat: 6.979811, lon: 79.916322, description: "Sri Lanka 2016"},
             {lat: 9.307580, lon: 76.751043, description: "Kerala 2016"},
             {lat: 19.063308, lon: 72.947976, description: "Mumbai 2014"},
-            {lat:25.25666564, lon: 51.558997764, description: "Qatar 2024"},
-            {lat:42.331429, lon: -83.045753, description: "Detroit 2021"},
-            {lat:36.152743, lon: -95.972096, description: "Tulsa 2011" },
-            {lat:38.978443,lon: -76.492180, description: "Annapolis 2018"},
-            {lat:13.732101, lon: 100.483750, description: "Bangkok 2024"},
-            {lat:18.777747, lon: 98.983086, description: "Chang Mai 2024"},
+            {lat: 25.25666564, lon: 51.558997764, description: "Qatar 2024"},
+            {lat: 42.331429, lon: -83.045753, description: "Detroit 2021"},
+            {lat: 36.152743, lon: -95.972096, description: "Tulsa 2011"},
+            {lat: 38.978443, lon: -76.492180, description: "Annapolis 2018"},
+            {lat: 13.732101, lon: 100.483750, description: "Bangkok 2024"},
+            {lat: 18.777747, lon: 98.983086, description: "Chiang Mai 2024"},
             {lat: 9.489661, lon: 100.031598, description: "Koh Samui/Phangan 2024"},
             {lat: 9.025892, lon: 98.641697, description: "Khao Sok 2024"},
             {lat: 7.972069, lon: 98.322794, description: "Phuket 2024"},
@@ -185,7 +179,7 @@
             {lat: 22.814732, lon: 104.981391, description: "Ha Giang 2024"},
             {lat: 21.017726, lon: 105.833005, description: "Hanoi 2024"},
             {lat: 15.892192, lon: 108.339821, description: "Hoi An 2024"},
-            {lat: 60.101488,lon:  -149.450461, description: "Seward 2024"},
+            {lat: 60.101488, lon: -149.450461, description: "Seward 2024"},
             {lat: 60.491168, lon: -149.872796, description: "Cooper's Landing 2024"},
             {lat: 61.229276, lon: -149.876130, description: "Anchorage 2024"},
             {lat: 62.310076, lon: -150.110247, description: "Talkeetna 2024"},
@@ -203,21 +197,13 @@
             {lat: 29.739701, lon: -95.362839, description: "Houston, Texas 2017"},
             {lat: 9.415758, lon: -84.162595, description: "Costa Rica 2016"},
             {lat: 44.257385, lon: -68.267540, description: "Great Cranbury Island 2023"}
-
-            //need to add alaska and big sky
         ];
 
-        // Function to add a pin
-        function addPin(lat, lon, description) {
-            const marker = L.marker([lat, lon], { icon: pinIcon }).addTo(map);
-            if (description) {
-                marker.bindPopup(description);
-            }
-        }
-
-        // Add all predefined pins
         travelLocations.forEach(location => {
-            addPin(location.lat, location.lon, location.description);
+            const marker = L.marker([location.lat, location.lon], { icon: pinIcon }).addTo(map);
+            if (location.description) {
+                marker.bindPopup(location.description);
+            }
         });
     </script>
 </body>

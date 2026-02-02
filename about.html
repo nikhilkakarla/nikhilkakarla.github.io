@@ -8,100 +8,26 @@
     <style>
         .hero-content {
             opacity: 0;
-            transform: translateX(-100%);
-            transition: transform 1s ease-out, opacity 1s ease-out;
+            transform: translateY(30px);
+            transition: transform 0.8s ease-out, opacity 0.8s ease-out;
         }
 
         .hero-image img {
             opacity: 0;
-            transform: translateX(100%);
-            transition: transform 1s ease-out, opacity 1s ease-out;
+            transform: translateY(30px);
+            transition: transform 0.8s ease-out 0.2s, opacity 0.8s ease-out 0.2s;
         }
 
         .hero-content.show,
         .hero-image img.show {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateY(0);
         }
 
         .contact-form,
         .publications-list {
             display: none;
-            font-size: 18px;
-            margin-top: 20px;
-            background-color: #007bff;
-            padding: 20px;
-            border-radius: 4px;
         }
-
-        .contact-button,
-        .publications-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-right: 10px;
-        }
-
-        .contact-button:hover,
-        .publications-button:hover {
-            background-color: #333;
-        }
-
-        .social-media {
-            margin-top: 20px;
-        }
-
-        .social-media p {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .social-media ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .social-media ul li {
-            margin: 5px 0;
-        }
-
-        .social-media ul li a {
-            color: #007bff;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s ease;
-        }
-
-        .social-media ul li a:hover {
-            color: #0056b3;
-        }
-        
-        .form-title {
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-
-        .submit-button {
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .submit-button:hover {
-            background-color: #333;
-        }
-
     </style>
 </head>
 <body>
@@ -132,12 +58,12 @@
                 <div id="contactForm" class="contact-form">
                     <div class="form-title">Please fill out and I will get back to you as soon as possible.</div>
                     <form id="contact-form">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required><br>
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required><br>
-                        <label for="message">Message:</label><br>
-                        <textarea id="message" name="message" rows="4" required></textarea><br>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
                         <input type="hidden" name="to_email" value="nikhilkakarla@gmail.com">
                         <input type="hidden" name="from_name" id="from_name">
                         <input type="hidden" name="from_email" id="from_email">
@@ -146,7 +72,7 @@
                 </div>
                 <div id="publicationsList" class="publications-list">
                     <ul>
-                        <li>Publication 1: Fox F, Kakarla N, and Jokelson Z. “Leveraging Demand Analytics to Reach Sustainability Goals”  Planalytics, Inc., 2021, <a href= "https://www.planalytics.com/request-wp-reach-sustainability-goals/">https://www.planalytics.com/request-wp-reach-sustainability-goals/</a>.</li>
+                        <li>Publication 1: Fox F, Kakarla N, and Jokelson Z. "Leveraging Demand Analytics to Reach Sustainability Goals"  Planalytics, Inc., 2021, <a href= "https://www.planalytics.com/request-wp-reach-sustainability-goals/">https://www.planalytics.com/request-wp-reach-sustainability-goals/</a>.</li>
                     </ul>
                 </div>
                 <div id="socialMedia" class="social-media" style="display: none;">
@@ -173,13 +99,13 @@
             setTimeout(() => {
                 heroContent.classList.add('show');
                 heroImage.classList.add('show');
-            }, 500); // Delay to allow for smoother animation
-            
+            }, 300);
+
             const contactButton = document.getElementById('contactButton');
             const contactForm = document.getElementById('contactForm');
             const publicationsButton = document.getElementById('publicationsButton');
             const publicationsList = document.getElementById('publicationsList');
-            
+
             contactButton.addEventListener('click', function() {
                 contactForm.style.display = 'block';
                 contactButton.style.display = 'none';
@@ -212,7 +138,5 @@
             });
         });
     </script>
-
-    
 </body>
 </html>

@@ -3,18 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoTitle = document.getElementById('video-title');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
-    //radnom comment
-    const newVar = 0
 
     const videos = [
-        { src: 'https://www.youtube.com/embed/l63MZBVRfs0?si=O7ZqYf6HbdnYYfqk', title: 'Vail (12/01/25 - 2/14/25)'},
-        { src: 'https://www.youtube.com/embed/lcIT0JNCZjg?si=8yR-N62mVoo6j07V', title: 'Summer Of Travel (06/01/2024 - 08/15/2024)' },
-        { src: 'https://www.youtube.com/embed/H6uiZ1IZhfA', title: 'Second Semester Senior Year (01/01/2024 - 06/01/2024)' },
-        { src: 'https://www.youtube.com/embed/Cq99woykFB4', title: 'First Semester Senior Year (09/01/2023 - 01/01/2024)' },
-        { src: 'https://www.youtube.com/embed/Y20P9mIFCrs', title: 'Summer of 2023 (05/25/2023 - 08/28/2024)' },
-        { src: 'https://www.youtube.com/embed/jMixDfDaB7A', title: 'Skiing in Grimmentz (03/24/2023 - 04/03/2024)' },
-        { src: 'https://www.youtube.com/embed/_qO3SoXMHTA', title: 'HeliSkiing in BC (01/03/2023 - 01/06/2023)' },
-        { src: 'https://www.youtube.com/embed/wY9j7mjD6Xo', title: 'Skydiving (05/30/2024)' }
+        { src: 'https://www.youtube.com/embed/l63MZBVRfs0?rel=0&modestbranding=1', title: 'Vail (12/01/25 - 2/14/25)' },
+        { src: 'https://www.youtube.com/embed/lcIT0JNCZjg?rel=0&modestbranding=1', title: 'Summer Of Travel (06/01/2024 - 08/15/2024)' },
+        { src: 'https://www.youtube.com/embed/H6uiZ1IZhfA?rel=0&modestbranding=1', title: 'Second Semester Senior Year (01/01/2024 - 06/01/2024)' },
+        { src: 'https://www.youtube.com/embed/Cq99woykFB4?rel=0&modestbranding=1', title: 'First Semester Senior Year (09/01/2023 - 01/01/2024)' },
+        { src: 'https://www.youtube.com/embed/Y20P9mIFCrs?rel=0&modestbranding=1', title: 'Summer of 2023 (05/25/2023 - 08/28/2024)' },
+        { src: 'https://www.youtube.com/embed/jMixDfDaB7A?rel=0&modestbranding=1', title: 'Skiing in Grimmentz (03/24/2023 - 04/03/2024)' },
+        { src: 'https://www.youtube.com/embed/_qO3SoXMHTA?rel=0&modestbranding=1', title: 'HeliSkiing in BC (01/03/2023 - 01/06/2023)' },
+        { src: 'https://www.youtube.com/embed/wY9j7mjD6Xo?rel=0&modestbranding=1', title: 'Skydiving (05/30/2024)' }
     ];
 
     let currentVideoIndex = 0;
@@ -26,19 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function switchVideo(index) {
-        videoPlayer.classList.remove('zoomIn');
-        void videoPlayer.offsetWidth; // Trigger reflow
-        videoPlayer.classList.add('zoomIn');
         loadVideo(index);
     }
 
     function updateActiveThumbnail(index) {
         document.querySelectorAll('.thumbnail').forEach((thumbnail, i) => {
-            if (i === index) {
-                thumbnail.classList.add('active');
-            } else {
-                thumbnail.classList.remove('active');
-            }
+            thumbnail.classList.toggle('active', i === index);
         });
     }
 
@@ -54,12 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.thumbnail').forEach(thumbnail => {
         thumbnail.addEventListener('click', () => {
-            const index = parseInt(thumbnail.getAttribute('data-index'), 10);
-            currentVideoIndex = index;
+            currentVideoIndex = parseInt(thumbnail.getAttribute('data-index'), 10);
             switchVideo(currentVideoIndex);
         });
     });
 
-    // Initial video load
     loadVideo(currentVideoIndex);
 });
