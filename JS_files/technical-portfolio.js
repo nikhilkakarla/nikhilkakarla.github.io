@@ -104,62 +104,39 @@ document.addEventListener('DOMContentLoaded', () => {
       
         `,
         box4: `
-       <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>KeepInTouch - Professional Networking Made Easy</title>
-            <style>
-                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; }
-                .container { width: 90%; max-width: 800px; margin: auto; padding: 20px; }
-                h1 { color: #0066cc; text-align: center; margin-bottom: 30px; }
-                .section { margin: 30px 0; }
-                .section h2 { color: #333; }
-                .feature-list { list-style-type: none; padding: 0; }
-                .feature-list li { background: #f0f0f0; padding: 10px; margin-bottom: 5px; border-left: 4px solid #0066cc; }
-            </style>
-        </head>
-        <body>
-            <div class="container">
-                <h1>KeepInTouch - Professional Networking Made Easy</h1>
+        <div>
+            <h2>KeepInTouch - Professional Networking Made Easy</h2>
 
-                <div class="section">
-                    <h2>Main Benefits and Use Case</h2>
-                    <p>
-                        KeepInTouch is your essential tool for maintaining and strengthening your professional network. 
-                        Building and nurturing relationships is vital for career growth, and this app makes it easier than ever 
-                        to stay connected. It helps you remember when to reach out to colleagues, mentors, and business partners, 
-                        ensuring that no relationship slips through the cracks.
-                    </p>
-                    <p>
-                        One of the main features of KeepInTouch is the ability to set reminders for follow-ups, important dates 
-                        like birthdays or work anniversaries, and other special moments in the lives of the people you care about. 
-                        This ensures you stay engaged and make a lasting impression.
-                    </p>
-                    <p>
-                        Additionally, KeepInTouch uses location-based tracking to remind you of contacts nearby. 
-                        When you're in the same area as a contact, the app will notify you, offering an opportunity for an 
-                        impromptu meeting or catch-up. This feature helps you make the most of every interaction and ensures your 
-                        network stays active and vibrant.
-                    </p>
-                </div>
+            <h3>Main Benefits and Use Case</h3>
+            <p>
+                KeepInTouch is your essential tool for maintaining and strengthening your professional network.
+                Building and nurturing relationships is vital for career growth, and this app makes it easier than ever
+                to stay connected. It helps you remember when to reach out to colleagues, mentors, and business partners,
+                ensuring that no relationship slips through the cracks.
+            </p>
+            <p>
+                One of the main features of KeepInTouch is the ability to set reminders for follow-ups, important dates
+                like birthdays or work anniversaries, and other special moments in the lives of the people you care about.
+                This ensures you stay engaged and make a lasting impression.
+            </p>
+            <p>
+                Additionally, KeepInTouch uses location-based tracking to remind you of contacts nearby.
+                When you’re in the same area as a contact, the app will notify you, offering an opportunity for an
+                impromptu meeting or catch-up. This feature helps you make the most of every interaction and ensures your
+                network stays active and vibrant.
+            </p>
 
-                <div class="section">
-                    <h2>Technical Features</h2>
-                    <ul class="feature-list">
-                        <li><strong>Swipe-Based Contact Finder:</strong> Quickly browse contacts to identify who to reach out to. Swipe right to save for later or left to skip.</li>
-                        <li><strong>Cloud Backup and Sync:</strong> Ensure your contact data is safe with automated daily backups and seamless synchronization using Realm database.</li>
-                        <li><strong>Custom Reminders and Notifications:</strong> Set reminders for follow-ups and special dates like birthdays, anniversaries, and work milestones.</li>
-                        <li><strong>Location-Based Suggestions:</strong> Keep track of contacts in your area and get notified when you’re nearby someone you may want to connect with.</li>
-                        <li><strong>Contact Details View:</strong> View contact information at a glance, including affiliation, last contacted date, and personal notes.</li>
-                        <li><strong>Editing and Management:</strong> Delete, edit, and manage contact details with ease through intuitive UI features.</li>
-                        <li><strong>Smart Contact Sorting:</strong> Reorder contacts by their priority based on last contacted date and reminders set.</li>
-                    </ul>
-                </div>
-            </div>
-        </body>
-        </html>
+            <h3>Technical Features</h3>
+            <ul>
+                <li><strong>Swipe-Based Contact Finder:</strong> Quickly browse contacts to identify who to reach out to. Swipe right to save for later or left to skip.</li>
+                <li><strong>Cloud Backup and Sync:</strong> Ensure your contact data is safe with automated daily backups and seamless synchronization using Realm database.</li>
+                <li><strong>Custom Reminders and Notifications:</strong> Set reminders for follow-ups and special dates like birthdays, anniversaries, and work milestones.</li>
+                <li><strong>Location-Based Suggestions:</strong> Keep track of contacts in your area and get notified when you’re nearby someone you may want to connect with.</li>
+                <li><strong>Contact Details View:</strong> View contact information at a glance, including affiliation, last contacted date, and personal notes.</li>
+                <li><strong>Editing and Management:</strong> Delete, edit, and manage contact details with ease through intuitive UI features.</li>
+                <li><strong>Smart Contact Sorting:</strong> Reorder contacts by their priority based on last contacted date and reminders set.</li>
+            </ul>
+        </div>
 `,
         box5: `
         <div>

@@ -28,6 +28,22 @@
         .publications-list {
             display: none;
         }
+
+        .typing-cursor {
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
+            animation: blink 0.7s step-end infinite;
+        }
+
+        .typing-cursor.done {
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
     </style>
 </head>
 <body>
@@ -50,9 +66,9 @@
     <main>
         <div class="hero">
             <div class="hero-content">
-                <h1>Hello, it's me <span class="highlight">Nikhil</span>.</h1>
-                <p>I am a recent graduate from the Massachusetts Institute of Technology (MIT) with a B.S. degree in Computer Science. This spring, I am excited to start my career at McKinsey & Company as a Business Analyst, where I aim to leverage my technical expertise and business acumen to build and deploy novel analytical models for our clients.</p>
-                <p>I was born in Austin, Texas and then moved to Philadelphia, PA and attended Episcopal Academy High School. I am passionate about skiing, football, and electronic music; I love to work on niche projects in my free time. Before starting work, I am taking some time to explore the world and document my journey through video. Please reach out at any time!</p>
+                <h1><span id="typed-text"></span><span class="typing-cursor">|</span></h1>
+                <p>I am an entrepreneur and inventor. After graduating from the Massachusetts Institute of Technology (MIT) with a B.S. degree in Computer Science, I worked as a business analyst at McKinsey & Company. There, I specialized in digital and AI transformations across industries. I have done work from enterprise strategy and resource allocation to hands-on-keys implementation, org design, and change management. Now, I am beginning my entrepreneurial journey.</p>
+                <p>I was born in Austin, Texas and then moved to Philadelphia, PA and attended Episcopal Academy High School before moving to Boston. I love to build and have a passion for squash, skiing, football, and electronic music. Please reach out at any time!</p>
                 <button id="contactButton" class="contact-button">Contact Me</button>
                 <button id="publicationsButton" class="publications-button">Publications</button>
                 <div id="contactForm" class="contact-form">
@@ -100,6 +116,46 @@
                 heroContent.classList.add('show');
                 heroImage.classList.add('show');
             }, 300);
+
+            // Typing animation
+            const typedEl = document.getElementById('typed-text');
+            const cursor = document.querySelector('.typing-cursor');
+            const parts = [
+                { text: "Hello, it's me ", highlight: false },
+                { text: "Nikhil", highlight: true },
+                { text: ".", highlight: false }
+            ];
+            let partIdx = 0;
+            let charIdx = 0;
+            let builtHtml = '';
+
+            function typeChar() {
+                if (partIdx >= parts.length) {
+                    setTimeout(() => cursor.classList.add('done'), 500);
+                    return;
+                }
+                const part = parts[partIdx];
+                charIdx++;
+                const typed = part.text.substring(0, charIdx);
+                let displayHtml = builtHtml;
+                if (part.highlight) {
+                    displayHtml += '<span class="highlight">' + typed + '</span>';
+                } else {
+                    displayHtml += typed;
+                }
+                typedEl.innerHTML = displayHtml;
+                if (charIdx >= part.text.length) {
+                    builtHtml += part.highlight
+                        ? '<span class="highlight">' + part.text + '</span>'
+                        : part.text;
+                    partIdx++;
+                    charIdx = 0;
+                }
+                setTimeout(typeChar, 100);
+            }
+
+            // Start typing after hero fade-in completes
+            setTimeout(typeChar, 1200);
 
             const contactButton = document.getElementById('contactButton');
             const contactForm = document.getElementById('contactForm');

@@ -360,7 +360,7 @@ main {
     }
 
     .timeline::before {
-        left: 20px;
+        left: 40px;
     }
 
     .timeline-item::before {
@@ -434,6 +434,10 @@ main {
 
     .timeline {
         padding: 0 16px;
+    }
+
+    .timeline::before {
+        left: 36px;
     }
 
     .timeline-card {
