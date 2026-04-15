@@ -105,36 +105,40 @@ document.addEventListener('DOMContentLoaded', () => {
         `,
         box4: `
         <div>
-            <h2>KeepInTouch - Professional Networking Made Easy</h2>
+            <h2>Synapse — Your AI-Powered Network CRM</h2>
 
-            <h3>Main Benefits and Use Case</h3>
+            <h3>The Problem</h3>
             <p>
-                KeepInTouch is your essential tool for maintaining and strengthening your professional network.
-                Building and nurturing relationships is vital for career growth, and this app makes it easier than ever
-                to stay connected. It helps you remember when to reach out to colleagues, mentors, and business partners,
-                ensuring that no relationship slips through the cracks.
-            </p>
-            <p>
-                One of the main features of KeepInTouch is the ability to set reminders for follow-ups, important dates
-                like birthdays or work anniversaries, and other special moments in the lives of the people you care about.
-                This ensures you stay engaged and make a lasting impression.
-            </p>
-            <p>
-                Additionally, KeepInTouch uses location-based tracking to remind you of contacts nearby.
-                When you’re in the same area as a contact, the app will notify you, offering an opportunity for an
-                impromptu meeting or catch-up. This feature helps you make the most of every interaction and ensures your
-                network stays active and vibrant.
+                Professionals lose touch with 60-80% of their network within a year. Not because they don't care,
+                but because no one has time to manually track hundreds of relationships. The contacts app on your phone
+                stores names and numbers — it tells you nothing about when you last spoke to someone, what you talked about,
+                or why you should reconnect before your next meeting.
             </p>
 
-            <h3>Technical Features</h3>
+            <h3>What Synapse Does</h3>
+            <p>
+                Synapse is a personal relationship manager built around Iris, a conversational AI assistant that acts as
+                your network's memory. Rather than browsing spreadsheets or scrolling through contact lists, you talk to
+                Iris — by voice or text — and she handles the rest: adding contacts, setting reminders, surfacing who
+                you're overdue to reach out to, and briefing you before important conversations. She learns the context
+                of your relationships over time, so the more you use her, the sharper her suggestions get.
+            </p>
+            <p>
+                Synapse tracks the context around your relationships — affiliations, life events, last interaction dates,
+                notes — and Iris turns that into actionable prompts. Before a meeting, ask her to brief you and get a
+                real-time dossier on a contact's recent activity, role changes, and suggested talking points. No more
+                walking into a coffee chat cold.
+            </p>
+
+            <h3>Core Capabilities</h3>
             <ul>
-                <li><strong>Swipe-Based Contact Finder:</strong> Quickly browse contacts to identify who to reach out to. Swipe right to save for later or left to skip.</li>
-                <li><strong>Cloud Backup and Sync:</strong> Ensure your contact data is safe with automated daily backups and seamless synchronization using Realm database.</li>
-                <li><strong>Custom Reminders and Notifications:</strong> Set reminders for follow-ups and special dates like birthdays, anniversaries, and work milestones.</li>
-                <li><strong>Location-Based Suggestions:</strong> Keep track of contacts in your area and get notified when you’re nearby someone you may want to connect with.</li>
-                <li><strong>Contact Details View:</strong> View contact information at a glance, including affiliation, last contacted date, and personal notes.</li>
-                <li><strong>Editing and Management:</strong> Delete, edit, and manage contact details with ease through intuitive UI features.</li>
-                <li><strong>Smart Contact Sorting:</strong> Reorder contacts by their priority based on last contacted date and reminders set.</li>
+                <li><strong>Iris — Voice + Text Assistant:</strong> Talk to Iris like you'd talk to a chief of staff. Ask "Who do I know at Goldman?" or "Who haven't I talked to in 3 months?" and get instant, structured answers. Add contacts, set reminders, and query your entire network through natural conversation.</li>
+                <li><strong>Smart Suggestions:</strong> Iris proactively flags overdue reconnections, upcoming birthdays, and contacts who happen to be in your city — so nothing falls through the cracks.</li>
+                <li><strong>Pre-Meeting Briefings:</strong> Ask Iris to brief you on anyone in your network. She pulls from your personal notes and live web data — recent job changes, posts, news — and suggests conversation starters tailored to your relationship history.</li>
+                <li><strong>Life Event Tracking:</strong> Go beyond phone numbers. Track promotions, graduations, anniversaries, and job changes with scheduled reminders so you show up at the right moments.</li>
+                <li><strong>LinkedIn & Snapchat Sync:</strong> Pull in professional details and birthday data from existing platforms. No manual re-entry.</li>
+                <li><strong>Tags & Semantic Search:</strong> Organize contacts by custom groups (investors, classmates, mentors) and search across names, companies, locations, and notes simultaneously.</li>
+                <li><strong>Home Screen Widget:</strong> See upcoming events and launch Iris directly from your home screen — voice or text — without opening the app.</li>
             </ul>
         </div>
 `,
