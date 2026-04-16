@@ -8,62 +8,68 @@ document.addEventListener('DOMContentLoaded', () => {
     const information = {
         box1: `
             <div>
-            <h2>Senior UROP in the Media Lab: Detecting Stress to Prevent Drug Relapse</h2>
-            <h4>Used novel ML and AI methodologies to detect stress from heart rate data</h4>
-            <p>Working with Dr. Rich Fletcher, my task was to use heart rate (HR) and heart rate variability (HRV) data from wearables to detect stress within drug-addiction populations.
-                The purpose of the research was to enable Just-In-Time (JIT) digital psychological treatment to these patients while they were living their lives in recovery
-                and hopefully prevent relapses.
-            </p>
-            <p>My first task was to use K-mean clustering to try and autonomously split patients into archetypes based on their stress reactivity in lab experiments. In theory, creating these
-                archetypes would allow me to train multiple regressions (one for each subgroup) that would be much more accurate. In order to do this, I used Pandas and NumPy to combine
-                information about patients from the lab and ambulatory data and codified a way to normalize the HR and HRV metrics based on the lab baselines. I then ran multiple types of clustering algorithms to attempt to detect
-                latent states. While I did uncover different sets of archetypes, the data unfortunately was too random and the slicing did not increase the accuracy of the model.
-            </p>
-            <p>My next task was to use Autoencoders (a novel machine learning tool whose architecture is pictured below) to attempt to find latent states in the data and detect stress with this more flexible network architecture.
-                In order to achieve this, I first trained the autoencoder on the patient data with a prespecified number of inner "latent states". Then, I used the encoder (the first half of the neural network) to compress
-                the dataset from having 11 features into only 3. This compression served as a proxy for using t-SNE. Then, I ran a regression using the newly compressed latent states to predict stress in the patients.
-            </p>
-            <p>Due to the novelty of the process, I first started with the WESAD dataset (a very clean set of stress data from university students). After proving the efficacy of this methodology,
-                I moved on to the lab's datasets. While I was not able to drastically improve the accuracy of the regression models, my work laid the foundation
-                for future research and set up a strong methodology that, if tweaked, can be used to enable the type of detection necessary.
-            </p>
-            <div>
-                <h3>PowerPoint Slides:</h3>
-                <img src="images/urop_slide1.png" alt="PowerPoint Slide 1" style="width:70%; height:auto;">
-                <img src="images/urop_slide2.png" alt="PowerPoint Slide 2" style="width:70%; height:auto;">
-                <img src="images/urop_slide3.png" alt="PowerPoint Slide 3" style="width:70%; height:auto;">
-            </div>
-        </div>
+    <h2>Senior UROP in the Media Lab: Detecting Stress to Prevent Drug Relapse</h2>
+    <h4>Developed deep learning pipelines for physiological stress inference in substance-use disorder populations</h4>
+    <p>
+        Working under Dr. Rich Fletcher, I engineered a signal processing and ML pipeline leveraging HR and HRV features 
+        extracted from consumer-grade wearables to perform continuous stress inference within substance-use disorder (SUD) 
+        populations. The objective was to facilitate Just-In-Time Adaptive Interventions (JITAIs) — context-aware, 
+        digitally-delivered psychological treatments triggered dynamically as patients navigated recovery in ambulatory 
+        settings — with the goal of reducing relapse rates.
+    </p>
+    <p>
+        My first attempt focused on unsupervised phenotyping of patients to capture heterogeneity in autonomic 
+        stress reactivity. I engineered a unified feature matrix by merging lab-elicited and ambulatory recordings, 
+        applying individualized z-score normalization anchored to lab baselines to account for inter-subject physiological 
+        variability. I benchmarked K-Means, DBSCAN, and GMMs to identify latent patient archetypes, hypothesizing that 
+        archetype-conditioned regressors would outperform a population-level model. While distinct cluster structures emerged, 
+        high intra-cluster variance yielded no statistically significant improvement in downstream regression performance.
+    </p>
+    <p>
+        The second attempt explored representation learning via undercomplete Autoencoders as a nonlinear alternative to PCA. 
+        I trained symmetric encoder-decoder networks with varying latent dimensionalities, using MSE reconstruction loss as 
+        the self-supervised training signal, then projected the 11-dimensional HRV feature space into a 3-dimensional latent 
+        manifold for downstream stress regression — functionally analogous to t-SNE but with a learnable, parametric mapping. 
+        I first validated the pipeline on the WESAD benchmark corpus before applying it to the noisier, clinically-derived datasets. 
+        While absolute gains in R² and RMSE over baseline were modest — consistent with the difficulty of continuous affect 
+        estimation from peripheral signals in ecological settings — this work established a reproducible methodology and 
+        foundation for future work incorporating attention-based sequence models or contrastive self-supervised pretraining.
+    </p>
+    <div>
+        <h3>PowerPoint Slides:</h3>
+        <img src="images/urop_slide1.png" alt="PowerPoint Slide 1" style="width:70%; height:auto;">
+        <img src="images/urop_slide2.png" alt="PowerPoint Slide 2" style="width:70%; height:auto;">
+        <img src="images/urop_slide3.png" alt="PowerPoint Slide 3" style="width:70%; height:auto;">
+    </div>
+</div>
     
         `,
         box2: `
             <div>
-            <h2>6.4200: Fully functional autonomous car</h2>
-            <h4>Built out code to enable RC car to drive completely autonomously</h4>
-            <p>My team and I developed code to allow an RC car to plan its own path and drive itself through a city (video on the left) as well as race around a track under complete autonomous control (video on the right).
-                Our car competed in a final challenge against other teams in the class. Our car <strong> placed first</strong> in the track race and were one of the only teams to implement path planning
-                in the city driving section of the challenge (pictured below). Our car was also capable of stopping at stop signs placed randomly around the track.
-            </p>
-            <p>We implemented a variety of different control algorithms in our car. They are listed here:</p>
-            <ul>
-                <li><strong>Path Planning</strong>: Given a map of the driving area and a final destination, our car could autonomously plan a path that minimized travel distance while avoiding all obstacles. <a href="technical_materials/RSS_Lab_6_Report.pdf" download="technical_materials/RSS_Lab_6_Report.pdf">Read Report</a></li>
-                <li><strong>Localization</strong>: While driving, the car constantly compared its expected location against LIDAR readings and the given map. This allowed our car to account for slip and accurately track its location in the enviornment using a particle filter. <a href="technical_materials/RSS_Lab_5_Report_.pdf" download="technical_materials/RSS_Lab_5_Report_.pdf">Read Report</a></li>
-                <li><strong>Line Following</strong>: For the final track race, our car was able to recognize the lines along the track and keep itself centered in the lane even when moving at high speeds. We used PID control, homography, and Hough Transforms to keep our car more stable than others.</li>
-                <li><strong>Image Recognition</strong>: Our car constantly monitored the camera input and was able to stop when it recognized a stop sign along the road.</li>
-                <li><strong>Pure Pursuit</strong>: When enabled, our car was able to track a cone with its camera and move to maintain a constant distance from the cone.</li>
-                <li><strong>Wall Following</strong>: When enabled, our car used its LIDAR sensor to accuractly drive a constant distance from any wall including turns. <a href="technical_materials/RSS_Lab_3_Report.pdf" download="technical_materials/RSS_Lab_3_Report.pdf">Read Report</a></li>
-            </ul>
-            <video width="70%" height="auto" autoplay muted controls>
-                <source src="technical_materials/VidForWebsite.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <video width="20%" autoplay muted controls>
-                <source src="technical_materials/RunningVidForProject - SD 480p.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-
-
-        </div>
+    <h2>6.4200: Fully functional autonomous car</h2>
+    <h4>Built out code to enable RC car to drive completely autonomously</h4>
+    <video width="70%" height="auto" autoplay muted controls>
+        <source src="technical_materials/VidForWebsite.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <video width="20%" autoplay muted controls>
+        <source src="technical_materials/RunningVidForProject - SD 480p.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <p>My team and I developed code to allow an RC car to plan its own path and drive itself through a city (video on the left) as well as race around a track under complete autonomous control (video on the right).
+        Our car competed in a final challenge against other teams in the class. Our car <strong> placed first</strong> in the track race and were one of the only teams to implement path planning
+        in the city driving section of the challenge (pictured below). Our car was also capable of stopping at stop signs placed randomly around the track.
+    </p>
+    <p>We implemented a variety of different control algorithms in our car. They are listed here:</p>
+    <ul>
+        <li><strong>Path Planning</strong>: Given a map of the driving area and a final destination, our car could autonomously plan a path that minimized travel distance while avoiding all obstacles. <a href="technical_materials/RSS_Lab_6_Report.pdf" download="technical_materials/RSS_Lab_6_Report.pdf">Read Report</a></li>
+        <li><strong>Localization</strong>: While driving, the car constantly compared its expected location against LIDAR readings and the given map. This allowed our car to account for slip and accurately track its location in the enviornment using a particle filter. <a href="technical_materials/RSS_Lab_5_Report_.pdf" download="technical_materials/RSS_Lab_5_Report_.pdf">Read Report</a></li>
+        <li><strong>Line Following</strong>: For the final track race, our car was able to recognize the lines along the track and keep itself centered in the lane even when moving at high speeds. We used PID control, homography, and Hough Transforms to keep our car more stable than others.</li>
+        <li><strong>Image Recognition</strong>: Our car constantly monitored the camera input and was able to stop when it recognized a stop sign along the road.</li>
+        <li><strong>Pure Pursuit</strong>: When enabled, our car was able to track a cone with its camera and move to maintain a constant distance from the cone.</li>
+        <li><strong>Wall Following</strong>: When enabled, our car used its LIDAR sensor to accuractly drive a constant distance from any wall including turns. <a href="technical_materials/RSS_Lab_3_Report.pdf" download="technical_materials/RSS_Lab_3_Report.pdf">Read Report</a></li>
+    </ul>
+</div>
         `,
         box3: `
         <div class="project-summary">
@@ -106,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         box4: `
         <div>
             <h2>Synapse — Your AI-Powered Network CRM</h2>
+            <p><a href="https://ai-synapse.org/" target="_blank" style="display:inline-block; padding:10px 28px; background-color:rgba(255,255,255,0.1); border-radius:100px; font-size:15px; font-weight:500; text-decoration:none; color:#fff; transition:background-color 0.3s ease;">Visit our website →</a></p>
 
             <h3>The Problem</h3>
             <p>
@@ -144,23 +151,37 @@ document.addEventListener('DOMContentLoaded', () => {
 `,
         box5: `
         <div>
-            <h2>Snek Interpreter</h2>
-            <p>This project is part of a lab exercise focused on implementing a Snek interpreter. Snek is a simplified, educational programming language that is a derivative of the full LISP language. The codebase includes the following key components:</p>
+            <h2>NFL Gameplanning Engine</h2>
+            <h4>Built an automated analytics engine that ingests raw NFL player tracking data and outputs fully structured play breakdowns — formations, routes, coverages, and blocking schemes — using the same terminology coaches use in real NFL film rooms</h4>
+            <div class="media-row">
+                <div class="media-item">
+                    <iframe src="https://www.youtube.com/embed/WjOiN0OefGM?si=J5WM5zXw72QbIJAx" title="Football Engine Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <p style="text-align:center; font-size:13px; margin-top:6px;">Demo Video</p>
+                </div>
+                <div class="media-item">
+                    <object data="technical_materials/Gameplan Pitch Deck.pdf" type="application/pdf">
+                        <p>Unable to display PDF. <a href="technical_materials/Gameplan Pitch Deck.pdf" download>Download Pitch Deck</a></p>
+                    </object>
+                    <p style="text-align:center; font-size:13px; margin-top:6px;">Pitch Deck</p>
+                </div>
+            </div>
+            <p>
+                I designed and built a full-stack football analytics engine that processes <strong>raw NFL player tracking data</strong> — positional coordinates, velocity, acceleration vectors, and body orientation
+                for all 22 players on the field — and automatically decodes each snap into structured, coach-readable output. The pipeline ingests tracking CSVs from the NFL's Next Gen Stats system,
+                joins against play-level metadata (down, distance, field position, personnel on field), and runs each frame through a series of spatial classifiers that resolve every dimension an NFL coordinator evaluates on film:
+                personnel grouping, formation family and modifiers, receiver split widths, pre-snap motion type, route concepts per receiver, QB snap depth and time-to-throw, defensive front technique, coverage shell, and blocking scheme.
+                Outputs include interactive, agentic coaching module where coaches can ask any question about their data set and get immediate answers and analysis.
+            </p>
+            <p>The engine implements several interconnected analysis systems, each bridging computational geometry and signal processing with professional football schematic language:</p>
             <ul>
-                <li><strong>Interpreter Logic:</strong> The core logic for parsing and evaluating Snek expressions. This includes functions for tokenizing input, parsing tokens into an abstract syntax tree (AST), and evaluating the AST to produce results.</li>
-                <li><strong>Environment Management:</strong> Mechanisms for managing variable scopes and environments during program execution, allowing for variable definition, lookup, and modification.</li>
-                <li><strong>Recursion Handling:</strong> The interpreter is designed to handle deep recursion with an increased recursion limit to ensure complex programs can be evaluated without exceeding the default system limits.</li>
-                <li><strong>Snek-related Exceptions:</strong> Custom exceptions for handling various errors that may arise during the interpretation of Snek programs. These include:
-                    <ul>
-                        <li><em>SnekError:</em> The base class for all Snek-related exceptions.</li>
-                        <li><em>SnekSyntaxError:</em> Raised when the interpreter encounters a malformed expression.</li>
-                        <li><em>SnekNameError:</em> Raised when an undefined name is referenced in the program.</li>
-                        <li><em>SnekEvaluationError:</em> Raised for errors occurring during the evaluation process, excluding name errors.</li>
-                    </ul>
-                </li>
+                <li><strong>Formation Recognition via Spatial Clustering</strong>: Classifies 100+ offensive formations (Trips, Doubles, Bunch, Empty, Spread, 4x1, etc.) by computing each skill player's displacement from the offensive line and nearest lineman. Receiver splits are bucketed into discrete alignment zones using configurable yard-line thresholds, then matched against a JSON-defined playbook schema encoding formation families, side designations (strong/weak), and modifier tags for unbalanced lines, compressed sets, and stack/bunch variants. </li>
+                <li><strong>Route Classification via Two-Stage DTW Pipeline</strong>: Converts raw player trajectories into named route concepts using a two-stage classifier. Stage one runs a geometric heuristic: the trajectory is approximated as either a single-segment or two-segment piecewise linear fit, with the breakpoint optimized via grid search to minimize L2 reconstruction error. From the best-fit model, the engine extracts stem depth (flat/shallow/medium/deep), break angle, break direction (inside/outside relative to the QB), cross-field displacement, and terminal velocity to detect stop routes. Stage two normalizes the route to a common reference frame (origin at release point, rotated to canonical play direction) and runs FastDTW with Euclidean distance against a pre-built library of ground-truth route templates, partitioned by position group, release direction, and route family. Handles 100+ route subtypes.</li>
+                <li><strong>Pre-Snap Motion Detection & Taxonomy</strong>: Isolates motion events based on a velocity threshold, then classifies 15+ motion types by evaluating a feature vector of relevant motion attributes. Distinguishes true motion (movement at snap) from shifts (set before snap).</li>
+                <li><strong>Defensive Front Technique Mapping</strong>: Maps each box defender to an alignment technique (0 through 4i, strong/weak shade) by computing their y-offset relative to the nearest offensive lineman's shoulder and bucketing into half-gap increments consistent with the NFL's standard technique numbering system. Aggregates individual alignments into front classifications (e.g., Over, Under, Bear, 3-4). Also, tracks pre-snap safety depth to infer single-high vs. two-high shells.</li>
+                <li><strong>Frame-Level Collision Detection for Blocking Assignments</strong>: Computes pairwise Euclidean distances between all offensive and defensive players at each frame to identify blocking engagements, pull assignments for gap-scheme runs, and pass protection matchups. Distinguishes run blocking from pass sets using post-snap directional filters.</li>
+                <li><strong>Coverage Shell & Leverage Analysis</strong>: Computes pre-snap leverage for each defender relative to their nearest eligible receiver — inside, outside, or head-up based on y-displacement — along with cushion depth. Post-snap, tracks each defender's movement vector to classify zone responsibility (outside/middle, underneath/deep) vs. man-trail behavior, with manned-on assignments inferred from sustained proximity.</li>
+                <li><strong>Validation Against Ground-Truth Labels</strong>: Built a regression test harness that compares engine output against a manually labeled truth set (CSV with expert-annotated personnel, formation, motion, route names, and coverage per play) and reports per-attribute pass/fail rates, enabling systematic accuracy tracking as classification heuristics are tuned.</li>
             </ul>
-            <p>The interpreter is implemented in Python and includes a comprehensive set of tests to ensure the correct functionality of the interpreter components. This project demonstrates the application of concepts such as exception handling, recursive function calls, and environment management in the context of building a programming language interpreter.</p>
-            <p>For more details and to view the full code, visit the <a href="https://github.com/nkakarla712/lisp_code" target="_blank">GitHub repository</a>.</p>
         </div>
 
         `,

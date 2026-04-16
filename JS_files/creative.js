@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const videos = [
         { src: 'https://www.youtube.com/embed/l63MZBVRfs0?rel=0', title: 'Vail (12/01/25 - 2/14/25)' },
         { src: 'https://www.youtube.com/embed/lcIT0JNCZjg?rel=0', title: 'Summer Of Travel (06/01/2024 - 08/15/2024)' },
+        { src: 'https://www.youtube.com/embed/hvfxekLjz1o?si=h1-DG0Hs2ytWSTSQ', title: 'Tomorrowland Winter (03/21/2026 - 03/24/2026)' },
         { src: 'https://www.youtube.com/embed/H6uiZ1IZhfA?rel=0', title: 'Second Semester Senior Year (01/01/2024 - 06/01/2024)' },
         { src: 'https://www.youtube.com/embed/Cq99woykFB4?rel=0', title: 'First Semester Senior Year (09/01/2023 - 01/01/2024)' },
         { src: 'https://www.youtube.com/embed/Y20P9mIFCrs?rel=0', title: 'Summer of 2023 (05/25/2023 - 08/28/2024)' },

@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "personal-site-1fe95",
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

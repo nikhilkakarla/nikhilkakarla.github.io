@@ -254,6 +254,27 @@ nav ul li a:hover {
     margin-top: 12px;
 }
 
+/* Side-by-side media row (video + PDF) */
+.media-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.media-row .media-item {
+    flex: 1;
+    max-width: 380px;
+}
+
+.media-row .media-item iframe,
+.media-row .media-item object {
+    width: 100%;
+    height: 240px;
+    border-radius: 12px;
+    border: none;
+}
+
 .close {
     color: rgba(255, 255, 255, 0.4);
     float: right;
@@ -329,6 +350,21 @@ nav ul li a:hover {
         height: 250px;
     }
 
+    .media-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .media-row .media-item {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .media-row .media-item iframe,
+    .media-row .media-item object {
+        height: 220px;
+    }
+
     .popup-content video {
         width: 100% !important;
         height: auto !important;
@@ -345,7 +381,7 @@ nav ul li a:hover {
 #box2 { background-image: url('images/robot_car_cover.png'); }
 #box3 { background-image: url('images/kalshi_cover.png'); }
 #box4 { background-image: url('images/KeepInTouch_cover.png'); }
-#box5 { background-image: url('images/LISP_cover.png'); }
+#box5 { background-image: url('images/gameplan_cover.png'); }
 #box6 { background-image: url('images/riscv_cover.png'); }
 #box7 { background-image: url('images/fifa_cover.png'); }
 #box8 { background-image: url('images/DP_cover.png'); }
