@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </video>
     <p>My team and I developed code to allow an RC car to plan its own path and drive itself through a city (video on the left) as well as race around a track under complete autonomous control (video on the right).
         Our car competed in a final challenge against other teams in the class. Our car <strong> placed first</strong> in the track race and were one of the only teams to implement path planning
-        in the city driving section of the challenge (pictured below). Our car was also capable of stopping at stop signs placed randomly around the track.
+        in the city driving section of the challenge (pictured above). Our car was also capable of stopping at stop signs placed randomly around the track.
     </p>
     <p>We implemented a variety of different control algorithms in our car. They are listed here:</p>
     <ul>
