@@ -11,29 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
     <h2>Senior UROP in the Media Lab: Detecting Stress to Prevent Drug Relapse</h2>
     <h4>Developed deep learning pipelines for physiological stress inference in substance-use disorder populations</h4>
     <p>
-        Working under Dr. Rich Fletcher, I engineered a signal processing and ML pipeline leveraging HR and HRV features 
-        extracted from consumer-grade wearables to perform continuous stress inference within substance-use disorder (SUD) 
-        populations. The objective was to facilitate Just-In-Time Adaptive Interventions (JITAIs) — context-aware, 
-        digitally-delivered psychological treatments triggered dynamically as patients navigated recovery in ambulatory 
-        settings — with the goal of reducing relapse rates.
+        Working with Dr. Rich Fletcher, I engineered a signal processing and ML pipeline leveraging heart rate data from consumer-grade wearables 
+        with the goal of performing real-time stress detection within substance-use disorder (SUD) 
+        populations. The objective was to reduce patient relapse rates by enabling Just-In-Time Adaptive Interventions (JITAIs).
+        By actively monitoring stress signals, we could deliver context-aware, digitally-delivered psychological treatments 
+        triggered dynamically as patients navigated recovery in the real world.
     </p>
     <p>
-        My first attempt focused on unsupervised phenotyping of patients to capture heterogeneity in autonomic 
-        stress reactivity. I engineered a unified feature matrix by merging lab-elicited and ambulatory recordings, 
-        applying individualized z-score normalization anchored to lab baselines to account for inter-subject physiological 
-        variability. I benchmarked K-Means, DBSCAN, and GMMs to identify latent patient archetypes, hypothesizing that 
-        archetype-conditioned regressors would outperform a population-level model. While distinct cluster structures emerged, 
-        high intra-cluster variance yielded no statistically significant improvement in downstream regression performance.
-    </p>
+        My initial objective was to apply <em>K-means clustering</em>, an unsupervised machine learning technique, to segment patients 
+        into distinct archetypes based on their physiological stress responses observed during controlled lab experiments. The 
+        underlying hypothesis was that identifying population subgroups would enable a cluster-conditional modeling approach that could improve predictive accuracy via separate multi-variate regression models (MVR) trained on each population archetype. To support this, I integrated and cleaned data from both lab-controlled and real-world (ambulatory) settings. This included starndardizing heart rate (HR) and heart rate variability (HRV) metrics relative to each patient’s lab baseline and incorporating noise filtering and windowing to smooth the curves. I then experimented with several clustering algorithms (e.g., K-means, DBSCAN, Spectral clustering) to uncover potential latent structures. While I did produce distinct groupings, the clusters lacked consistency and did not meaningfully improve downstream model cross-validated RMSE or out-of-sample generalization performance.</p>
     <p>
-        The second attempt explored representation learning via undercomplete Autoencoders as a nonlinear alternative to PCA. 
-        I trained symmetric encoder-decoder networks with varying latent dimensionalities, using MSE reconstruction loss as 
-        the self-supervised training signal, then projected the 11-dimensional HRV feature space into a 3-dimensional latent 
-        manifold for downstream stress regression — functionally analogous to t-SNE but with a learnable, parametric mapping. 
-        I first validated the pipeline on the WESAD benchmark corpus before applying it to the noisier, clinically-derived datasets. 
-        While absolute gains in R² and RMSE over baseline were modest — consistent with the difficulty of continuous affect 
-        estimation from peripheral signals in ecological settings — this work established a reproducible methodology and 
-        foundation for future work incorporating attention-based sequence models or contrastive self-supervised pretraining.
+        Building on this, I explored the use of <em>autoencoders</em>, a type of neural network designed for dimensionality reduction and feature learning, as an alternative to identify latent representations of stress. The model was trained to compress the original dataset into a compact latent space and minimize reconstruction loss to capture the most salient patterns in the data, similar to t-SNE methodologies. After training, I used the encoder component of the network to transform the original dataset into this lower-dimensional latent space and compressed features were then used as inputs to regression models aimed at predicting patient stress levels. This approach allowed for a more nuanced representation of the data.
     </p>
     <div>
         <h3>PowerPoint Slides:</h3>
@@ -126,15 +115,12 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>
                 Synapse is a personal relationship manager built around Iris, a conversational AI assistant that acts as
                 your network's memory. Rather than browsing spreadsheets or scrolling through contact lists, you talk to
-                Iris — by voice or text — and she handles the rest: adding contacts, setting reminders, surfacing who
+                Iris by voice or text and she handles the rest: adding contacts, setting reminders, surfacing who
                 you're overdue to reach out to, and briefing you before important conversations. She learns the context
                 of your relationships over time, so the more you use her, the sharper her suggestions get.
             </p>
             <p>
-                Synapse tracks the context around your relationships — affiliations, life events, last interaction dates,
-                notes — and Iris turns that into actionable prompts. Before a meeting, ask her to brief you and get a
-                real-time dossier on a contact's recent activity, role changes, and suggested talking points. No more
-                walking into a coffee chat cold.
+                Synapse tracks the context around your relationships and Iris turns that into actionable prompts. Before a meeting, ask her to brief you and get a real-time dossier on a contact's recent activity, role changes, and suggested talking points. No more walking into a coffee chat cold.
             </p>
 
             <h3>Core Capabilities</h3>
@@ -145,14 +131,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li><strong>Life Event Tracking:</strong> Go beyond phone numbers. Track promotions, graduations, anniversaries, and job changes with scheduled reminders so you show up at the right moments.</li>
                 <li><strong>LinkedIn & Snapchat Sync:</strong> Pull in professional details and birthday data from existing platforms. No manual re-entry.</li>
                 <li><strong>Tags & Semantic Search:</strong> Organize contacts by custom groups (investors, classmates, mentors) and search across names, companies, locations, and notes simultaneously.</li>
-                <li><strong>Home Screen Widget:</strong> See upcoming events and launch Iris directly from your home screen — voice or text — without opening the app.</li>
+                <li><strong>Home Screen Widget:</strong> See upcoming events and launch Iris directly from your home screen without opening the app.</li>
             </ul>
         </div>
 `,
         box5: `
         <div>
             <h2>NFL Gameplanning Engine</h2>
-            <h4>Built an automated analytics engine that ingests raw NFL player tracking data and outputs fully structured play breakdowns — formations, routes, coverages, and blocking schemes — using the same terminology coaches use in real NFL film rooms</h4>
+            <h4>Built an automated analytics engine that ingests raw NFL player tracking data and outputs fully structured play breakdowns using the same custom terminology coaches use in real their team film rooms</h4>
             <div class="media-row">
                 <div class="media-item">
                     <iframe src="https://www.youtube.com/embed/WjOiN0OefGM?si=J5WM5zXw72QbIJAx" title="Football Engine Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -166,20 +152,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
             <p>
-                I designed and built a full-stack football analytics engine that processes <strong>raw NFL player tracking data</strong> — positional coordinates, velocity, acceleration vectors, and body orientation
-                for all 22 players on the field — and automatically decodes each snap into structured, coach-readable output. The pipeline ingests tracking CSVs from the NFL's Next Gen Stats system,
-                joins against play-level metadata (down, distance, field position, personnel on field), and runs each frame through a series of spatial classifiers that resolve every dimension an NFL coordinator evaluates on film:
-                personnel grouping, formation family and modifiers, receiver split widths, pre-snap motion type, route concepts per receiver, QB snap depth and time-to-throw, defensive front technique, coverage shell, and blocking scheme.
-                Outputs include interactive, agentic coaching module where coaches can ask any question about their data set and get immediate answers and analysis.
+                I designed and built a full-stack football analytics engine that processes <strong>raw NFL player tracking data</strong>, positional and velocity vectors, and automatically parses each play into structured, coach-readable outputs. The pipeline ingests tracking CSVs from the NFL's Next Gen Stats system, joins against play-level metadata, and runs each frame through a series of spatial classifiers that resolve every dimension an NFL coordinator evaluates on film:
+                personnel grouping, formation family and modifiers, receiver splits, pre-snap motions, route concepts, QB dropback depth, defensive fronts, techniques, coverage shells, blocking schemes, and more. The raw data is then made accessible through an interactive, agentic coaching module where coaches can ask any question about their data set and get immediate answers and analysis.
             </p>
-            <p>The engine implements several interconnected analysis systems, each bridging computational geometry and signal processing with professional football schematic language:</p>
+            <p>The engine implements several interconnected analytics modules, each bridging computational geometry and signal processing to professional football schematic language:</p>
             <ul>
-                <li><strong>Formation Recognition via Spatial Clustering</strong>: Classifies 100+ offensive formations (Trips, Doubles, Bunch, Empty, Spread, 4x1, etc.) by computing each skill player's displacement from the offensive line and nearest lineman. Receiver splits are bucketed into discrete alignment zones using configurable yard-line thresholds, then matched against a JSON-defined playbook schema encoding formation families, side designations (strong/weak), and modifier tags for unbalanced lines, compressed sets, and stack/bunch variants. </li>
-                <li><strong>Route Classification via Two-Stage DTW Pipeline</strong>: Converts raw player trajectories into named route concepts using a two-stage classifier. Stage one runs a geometric heuristic: the trajectory is approximated as either a single-segment or two-segment piecewise linear fit, with the breakpoint optimized via grid search to minimize L2 reconstruction error. From the best-fit model, the engine extracts stem depth (flat/shallow/medium/deep), break angle, break direction (inside/outside relative to the QB), cross-field displacement, and terminal velocity to detect stop routes. Stage two normalizes the route to a common reference frame (origin at release point, rotated to canonical play direction) and runs FastDTW with Euclidean distance against a pre-built library of ground-truth route templates, partitioned by position group, release direction, and route family. Handles 100+ route subtypes.</li>
-                <li><strong>Pre-Snap Motion Detection & Taxonomy</strong>: Isolates motion events based on a velocity threshold, then classifies 15+ motion types by evaluating a feature vector of relevant motion attributes. Distinguishes true motion (movement at snap) from shifts (set before snap).</li>
-                <li><strong>Defensive Front Technique Mapping</strong>: Maps each box defender to an alignment technique (0 through 4i, strong/weak shade) by computing their y-offset relative to the nearest offensive lineman's shoulder and bucketing into half-gap increments consistent with the NFL's standard technique numbering system. Aggregates individual alignments into front classifications (e.g., Over, Under, Bear, 3-4). Also, tracks pre-snap safety depth to infer single-high vs. two-high shells.</li>
-                <li><strong>Frame-Level Collision Detection for Blocking Assignments</strong>: Computes pairwise Euclidean distances between all offensive and defensive players at each frame to identify blocking engagements, pull assignments for gap-scheme runs, and pass protection matchups. Distinguishes run blocking from pass sets using post-snap directional filters.</li>
-                <li><strong>Coverage Shell & Leverage Analysis</strong>: Computes pre-snap leverage for each defender relative to their nearest eligible receiver — inside, outside, or head-up based on y-displacement — along with cushion depth. Post-snap, tracks each defender's movement vector to classify zone responsibility (outside/middle, underneath/deep) vs. man-trail behavior, with manned-on assignments inferred from sustained proximity.</li>
+                <li><strong>Formation Recognition via Spatial Clustering</strong>: Classifies 100+ offensive formations (Trips, Doubles, Bunch, Empty, Spread, 4x1, etc.) by computing each skill player's displacement from the offensive line and nearest lineman. Receiver splits are bucketed into discrete zones using yard-line thresholds configurable to each team, then matched against a JSON-defined playbook schema encoding formation families, side designations (strong/weak), and modifier tags for unbalanced lines, compressed sets, and stack/bunch variants. </li>
+                <li><strong>Route Classification via Two-Stage DTW Pipeline</strong>: Converts raw player trajectories into named route concepts using a two-stage classifier. Stage one runs a geometric heuristic: the trajectory is approximated as either a single-segment or two-segment piecewise linear fit, with the breakpoint optimized via grid search to minimize L2 reconstruction error. From the best-fit model, the engine extracts stem depth, break angle, break direction, cross-field displacement, and velocity changes to detect routes. Stage two normalizes the route to a common reference frame and runs FastDTW with Euclidean distance against a pre-built library of ground-truth route templates, partitioned by position group, release direction, and route family. The predictions are combined into a single label for each of the 100+ route subtypes.</li>
+                <li><strong>Defensive Front Technique Mapping</strong>: Maps each box defender to an alignment technique (0 through 4i, strong/weak shade) by computing their y-offset relative to the nearest offensive lineman's shoulder and bucketing into the NFL's standard technique numbering system. Aggregates individual alignments into front classifications (e.g., Over, Under, Bear, 3-4) based on custom team requirements.</li>
+                <li><strong>Frame-Level Collision Detection for Blocking Assignments</strong>: Computes pairwise Euclidean distances between all offensive and defensive players at each frame to identify blocking engagements, pull assignments for gap-scheme runs, and pass protection matchups. Autonomously identifies run blocking schemes and individual responsibilities.</li>
+                <li><strong>Coverage Shell & Leverage Analysis</strong>: Computes pre-snap leverage for each defender relative to their nearest eligible receiver — inside, outside, or head-up based on y-displacement — along with cushion depth. Post-snap, tracks each defender's movement vector to classify zone responsibilities vs. man-trail behavior, with manned-on assignments inferred from sustained proximity.</li>
                 <li><strong>Validation Against Ground-Truth Labels</strong>: Built a regression test harness that compares engine output against a manually labeled truth set (CSV with expert-annotated personnel, formation, motion, route names, and coverage per play) and reports per-attribute pass/fail rates, enabling systematic accuracy tracking as classification heuristics are tuned.</li>
             </ul>
         </div>
