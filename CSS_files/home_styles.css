@@ -161,13 +161,18 @@ nav ul li a:hover {
         padding: 16px 20px;
     }
 
+    nav {
+        min-width: 0;
+        flex: 1 1 0;
+    }
+
     nav ul {
         flex-wrap: nowrap;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         gap: 10px;
-        padding-bottom: 4px;
+        padding: 0 8px 4px 0;
     }
 
     nav ul::-webkit-scrollbar {
@@ -221,6 +226,7 @@ nav ul li a:hover {
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         gap: 8px;
+        padding-right: 8px;
     }
 
     nav ul::-webkit-scrollbar {
