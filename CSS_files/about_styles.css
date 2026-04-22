@@ -332,8 +332,8 @@ nav ul li a:hover {
     }
 
     nav ul li a {
-        font-size: 12px;
-        padding: 8px 14px;
+        font-size: 14px;
+        padding: 10px 18px;
     }
 }
 
@@ -359,8 +359,8 @@ nav ul li a:hover {
     }
 
     nav ul li a {
-        font-size: 11px;
-        padding: 7px 12px;
+        font-size: 13px;
+        padding: 9px 15px;
     }
 
     .hero {
