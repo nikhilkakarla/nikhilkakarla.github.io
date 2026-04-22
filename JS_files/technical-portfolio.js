@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <object data="technical_materials/Gameplan Pitch Deck.pdf" type="application/pdf">
                         <p>Unable to display PDF. <a href="technical_materials/Gameplan Pitch Deck.pdf" download>Download Pitch Deck</a></p>
                     </object>
-                    <p style="text-align:center; font-size:13px; margin-top:6px;">Pitch Deck</p>
+                    <p style="text-align:center; font-size:13px; margin-top:6px;">Pitch Deck &mdash; <a class="pdf-mobile-link" href="technical_materials/Gameplan Pitch Deck.pdf" target="_blank" rel="noopener">Open Full Deck</a></p>
                 </div>
             </div>
             <p>
@@ -243,6 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="pdf-reader">
                 <h3>Read the Full Report</h3>
                 <iframe src="technical_materials/DP_Final_Draft.pdf" width=850 height=1100></iframe>
+                <a class="pdf-mobile-link" href="technical_materials/DP_Final_Draft.pdf" target="_blank" rel="noopener">Open Full Report</a>
             </div>
         </div>
         `,
@@ -265,6 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="pdf-reader">
                 <h3>Read the Full Report</h3>
                 <iframe src="technical_materials/Navilux Go To Market.pdf" width=850 height=1100></iframe>
+                <a class="pdf-mobile-link" href="technical_materials/Navilux Go To Market.pdf" target="_blank" rel="noopener">Open Full Report</a>
             </div>
         </div>
         `

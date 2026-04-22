@@ -275,6 +275,11 @@ nav ul li a:hover {
     border: none;
 }
 
+/* Mobile-only fallback link for PDF embeds */
+.pdf-mobile-link {
+    display: none;
+}
+
 .close {
     color: rgba(255, 255, 255, 0.4);
     float: right;
@@ -368,6 +373,25 @@ nav ul li a:hover {
     .media-row .media-item iframe,
     .media-row .media-item object {
         height: 220px;
+    }
+
+    /* Mobile browsers can't scroll multi-page embedded PDFs — keep first-page preview and add an inline link to open full PDF */
+    .pdf-mobile-link {
+        display: inline;
+        color: #ffffff;
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 255, 255, 0.4);
+        font-weight: 500;
+    }
+
+    .pdf-reader {
+        text-align: center;
+    }
+
+    .pdf-reader > .pdf-mobile-link {
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 14px;
     }
 
     .popup-content video {
