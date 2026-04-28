@@ -1,0 +1,886 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: transparent;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.navbar .logo img {
+    height: 36px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 100px;
+    background-color: #1c1c1e;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+nav ul li a:hover {
+    background-color: #2c2c2e;
+}
+
+/* Main layout */
+main {
+    padding-top: 120px;
+    padding-bottom: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 32px;
+    padding: 0 20px;
+}
+
+.page-title h1 {
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.page-title p {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 8px;
+    font-weight: 400;
+}
+
+.section-heading {
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 16px;
+    color: #ffffff;
+}
+
+/* Blurb */
+.blurb-section {
+    max-width: 800px;
+    margin: 0 auto 56px;
+    padding: 0 40px;
+}
+
+.blurb {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+    font-weight: 400;
+}
+
+/* Video section */
+.video-section {
+    margin-bottom: 64px;
+}
+
+.video-player-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px;
+    position: relative;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 75%;
+    max-width: 1200px;
+    aspect-ratio: 16 / 9;
+}
+
+#video-player {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 20px;
+    background-color: #1c1c1e;
+}
+
+.slideshow-display {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #1c1c1e;
+    z-index: 2;
+    transition: opacity 0.4s ease;
+}
+
+.slideshow-display.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.slide-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.9s ease;
+}
+
+.slide-img.active {
+    opacity: 1;
+}
+
+#video-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 16px;
+    color: rgba(255, 255, 255, 0.55);
+    text-align: center;
+}
+
+.switch-btn {
+    background-color: #1c1c1e;
+    color: #ffffff;
+    border: none;
+    padding: 15px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 120px;
+    border-radius: 14px;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.switch-btn:hover {
+    background-color: #2c2c2e;
+}
+
+#prev-btn { left: 20px; }
+#next-btn { right: 20px; }
+
+.video-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px 40px;
+    flex-wrap: wrap;
+}
+
+.thumbnail {
+    width: 140px;
+    height: 80px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1c1c1e;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbnail.placeholder span {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 500;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.thumbnail.active {
+    border-color: #ffffff;
+}
+
+/* College section — horizontal scroll */
+.college-section {
+    margin-bottom: 72px;
+    padding: 0 40px;
+}
+
+.college-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+    padding: 8px 4px 16px;
+    scroll-snap-type: x mandatory;
+    /* Center the cards on wide screens where all 4 fit without scrolling.
+       Switch back to flex-start below 1330px so mobile scroll starts from left. */
+    justify-content: center;
+}
+
+.college-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.college-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+}
+
+.college-year {
+    flex: 0 0 300px;
+    background-color: #1c1c1e;
+    border-radius: 20px;
+    padding: 24px;
+    scroll-snap-align: start;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    min-height: 200px;
+}
+
+.college-year h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.college-year .year-label {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.placeholder-text {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+}
+
+.year-record {
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 600;
+}
+
+.year-bullets {
+    margin: 0;
+    padding-left: 16px;
+    list-style: disc;
+}
+
+.year-bullets li {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 2px;
+}
+
+/* Juniors section — two columns */
+.juniors-section {
+    padding: 0 40px;
+}
+
+.juniors-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.juniors-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+}
+
+.chart-card,
+.tournaments-card {
+    background-color: #1c1c1e;
+    border-radius: 20px;
+    padding: 20px 22px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.chart-card h3,
+.tournaments-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.chart-wrapper {
+    position: relative;
+    height: 170px;
+    width: 100%;
+}
+
+/* Match record / pie charts */
+.match-record-card {
+    flex-shrink: 0;
+}
+
+.pie-charts-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+}
+
+.pie-chart-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+
+.pie-chart-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.1;
+}
+
+.pie-chart-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+    display: block;
+    margin-top: 2px;
+}
+
+.pie-wrapper {
+    position: relative;
+    width: 100%;
+    height: 110px;
+}
+
+.pie-legend {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.pie-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.pie-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.tournaments-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.tournaments-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding-right: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+.tournaments-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tournaments-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+}
+
+.tournament-item {
+    padding: 10px 14px;
+    background-color: #2c2c2e;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    transition: background-color 0.2s ease;
+}
+
+.tournament-item:hover {
+    background-color: #3a3a3c;
+}
+
+.tournament-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+    flex: 1;
+}
+
+.tournament-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1.35;
+    word-break: break-word;
+}
+
+.tournament-date {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 400;
+}
+
+.tournament-result {
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 6px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Tournament tier left bars (inset box-shadow = no border-radius interference) */
+.tier-jct    { box-shadow: inset 4px 0 0 #E2DFDD; }
+.tier-gold   { box-shadow: inset 4px 0 0 #F5C518; }
+.tier-silver { box-shadow: inset 4px 0 0 #A8A9AD; }
+.tier-bronze { box-shadow: inset 4px 0 0 #C97C2E; }
+
+/* Shared swatch fill — legend dots + modal squares */
+.swatch-jct    { background-color: #E2DFDD; }
+.swatch-gold   { background-color: #F5C518; }
+.swatch-silver { background-color: #A8A9AD; }
+.swatch-bronze { background-color: #C97C2E; }
+
+/* Tournaments card header */
+.tournaments-card-head {
+    margin-bottom: 12px;
+}
+
+.tournaments-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.tournaments-title-row h3 {
+    margin-bottom: 0;
+}
+
+.legend-help-btn {
+    background: rgba(255, 255, 255, 0.12);
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease;
+    font-family: 'Inter', sans-serif;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.legend-help-btn:hover {
+    background: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+}
+
+.tournaments-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+}
+
+.legend-swatch {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* Column header (Tournament | Finish) */
+.tournaments-col-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 16px;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* Tier info modal */
+.tier-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.tier-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.tier-modal {
+    background: #1c1c1e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 28px;
+    max-width: 440px;
+    width: 90%;
+    position: relative;
+    transform: scale(0.95);
+    transition: transform 0.2s ease;
+}
+
+.tier-modal-overlay.active .tier-modal {
+    transform: scale(1);
+}
+
+.tier-modal h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.tier-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: rgba(255, 255, 255, 0.65);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease;
+    line-height: 1;
+}
+
+.tier-modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.tier-desc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tier-desc-list li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.tier-desc-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.tier-desc-list strong {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.tier-desc-list p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1330px) {
+    /* Below this width 4×300px cards no longer fit centered — revert to scroll-from-left */
+    .college-scroll {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 900px) {
+    .juniors-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 16px 20px;
+    }
+
+    nav {
+        min-width: 0;
+        flex: 1 1 0;
+    }
+
+    nav ul {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+        padding: 0 8px 4px 0;
+    }
+
+    nav ul::-webkit-scrollbar {
+        display: none;
+    }
+
+    nav ul li {
+        flex-shrink: 0;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+        padding: 10px 18px;
+    }
+
+    main {
+        padding-top: 100px;
+    }
+
+    .page-title h1 {
+        font-size: 32px;
+    }
+
+    .blurb-section {
+        padding: 0 24px;
+        margin-bottom: 40px;
+    }
+
+    .blurb {
+        font-size: 15px;
+    }
+
+    .video-player-container {
+        padding: 20px;
+    }
+
+    .video-wrapper {
+        width: 90%;
+    }
+
+    #video-title {
+        font-size: 14px;
+    }
+
+    .switch-btn {
+        width: 36px;
+        height: 80px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+
+    #prev-btn { left: 8px; }
+    #next-btn { right: 8px; }
+
+    .video-thumbnails {
+        padding: 16px 20px;
+        gap: 8px;
+    }
+
+    .thumbnail {
+        width: 100px;
+        height: 56px;
+    }
+
+    .college-section,
+    .juniors-section {
+        padding: 0 20px;
+    }
+
+    .college-year {
+        flex: 0 0 260px;
+        min-height: 180px;
+    }
+
+    .section-heading {
+        font-size: 20px;
+    }
+
+    .chart-wrapper {
+        height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 14px 16px;
+    }
+
+    nav ul li a {
+        font-size: 13px;
+        padding: 9px 15px;
+    }
+
+    main {
+        padding-top: 90px;
+    }
+
+    .page-title h1 {
+        font-size: 28px;
+    }
+
+    .video-player-container {
+        padding: 12px;
+    }
+
+    .video-wrapper {
+        width: 95%;
+    }
+
+    .switch-btn {
+        width: 30px;
+        height: 60px;
+        font-size: 12px;
+        border-radius: 8px;
+    }
+
+    #prev-btn { left: 4px; }
+    #next-btn { right: 4px; }
+
+    .video-thumbnails {
+        padding: 12px 16px;
+        gap: 6px;
+    }
+
+    .thumbnail {
+        width: 80px;
+        height: 46px;
+        border-radius: 8px;
+    }
+
+    .college-year {
+        flex: 0 0 240px;
+        padding: 20px;
+    }
+
+    .chart-card,
+    .tournaments-card {
+        padding: 20px;
+    }
+
+    .chart-wrapper {
+        height: 200px;
+    }
+
+    .tournament-item {
+        padding: 12px 14px;
+    }
+
+    .tournament-name {
+        font-size: 13px;
+    }
+
+    .tournament-result {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+}

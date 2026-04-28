@@ -1,0 +1,129 @@
+{
+  "source": "https://mitathletics.com/sports/mens-squash/roster/nikhil-kakarla/11777",
+  "scraped_at": "2026-04-26",
+  "profile": {
+    "name": "Nikhil Kakarla",
+    "sport": "Men's Squash",
+    "school": "MIT",
+    "class": "Senior",
+    "height": "6'3\"",
+    "weight_lbs": 193,
+    "hometown": "Philadelphia, Pennsylvania",
+    "high_school": "Episcopal Academy",
+    "high_school_class": 2020,
+    "major": "Computer Science",
+    "minor": "Business Analytics"
+  },
+  "honors": [
+    { "award": "MASC All-Academic Team", "years": ["2021-22", "2022-23", "2023-24"] },
+    { "award": "CSA Scholar All-American",  "years": ["2022-23", "2023-24"] }
+  ],
+  "seasons": [
+    {
+      "year": "2020-21",
+      "label": "Freshman",
+      "team_record": null,
+      "individual_record": null,
+      "notes": "Season canceled entirely due to COVID-19. All 24 scheduled matches called off.",
+      "nationals": null
+    },
+    {
+      "year": "2021-22",
+      "label": "Sophomore",
+      "team_record": "9-10",
+      "individual_record": null,
+      "notes": "First collegiate season. Beat Amherst 5-4, reached MASC and CSA Team Nationals.",
+      "nationals": {
+        "event": "CSA Team Championships",
+        "bracket": "9-16",
+        "results": [
+          { "round": "First round", "opponent": "Rochester", "score": "2-7", "result": "L" },
+          { "round": "Consolation", "opponent": "Williams", "score": "4-5", "result": "L" },
+          { "round": "Consolation", "opponent": "Franklin & Marshall", "score": "6-3", "result": "W" }
+        ]
+      }
+    },
+    {
+      "year": "2022-23",
+      "label": "Junior",
+      "team_record": "12-10",
+      "individual_record": null,
+      "notes": "Broke into double-digit wins. Earned CSA Scholar All-American. Won consolation final at nationals over Hobart.",
+      "nationals": {
+        "event": "CSA Team Championships",
+        "bracket": "9-16",
+        "results": [
+          { "round": "First round", "opponent": "Hamilton", "score": "7-2", "result": "W" },
+          { "round": "Semifinals", "opponent": "St. Lawrence", "score": "4-5", "result": "L" },
+          { "round": "Consolation final", "opponent": "Hobart", "score": "5-4", "result": "W", "note": "Decider win — favorite memory" }
+        ]
+      }
+    },
+    {
+      "year": "2023-24",
+      "label": "Senior",
+      "team_record": "12-14",
+      "individual_record": "13-12",
+      "notes": "10 three-set wins. 3-1 in the seven ladder. MASC All-Academic + CSA Scholar All-American (3rd consecutive year each).",
+      "nationals": {
+        "event": "CSA Team Championships",
+        "bracket": "9-16",
+        "seeding": 7,
+        "results": [
+          {
+            "round": "First round",
+            "opponent": "Colby College",
+            "opponent_seed": 2,
+            "score": "5-4",
+            "result": "W",
+            "note": "Upset — MIT lost to Colby 3-6 in regular season"
+          },
+          {
+            "round": "Semifinals",
+            "opponent": "Rochester",
+            "score": "2-7",
+            "result": "L"
+          }
+        ]
+      }
+    }
+  ],
+  "activities": [
+    "Vice President, Sigma Chi fraternity",
+    "Internship: McKinsey & Co.",
+    "Internship: Planalytics Inc.",
+    "Internship: Uzephra Business",
+    "Internship: Ciena Corporation"
+  ],
+  "quote": {
+    "prompt": "Favorite memory",
+    "text": "Winning the decider at nationals last year"
+  },
+  "photos": [
+    {
+      "label": "Headshot 2024",
+      "role": "headshot",
+      "url": "https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/mitathletics.com/images/2024/2/2/Kakarla_Web.jpg"
+    },
+    {
+      "label": "Action shot 2024",
+      "role": "action",
+      "url": "https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/mitathletics.com/images/2024/1/23/Nikhil_Kakarla_web.jpg"
+    },
+    {
+      "label": "Photo 2023 (Nov)",
+      "role": "secondary",
+      "url": "https://mitathletics.com/images/2023/11/29/Nikhil_Kakarla.jpg"
+    },
+    {
+      "label": "Photo 2023 (Feb)",
+      "role": "secondary",
+      "url": "https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/mitathletics.com/images/2023/2/26/Nikhil_Web.jpg"
+    },
+    {
+      "label": "Photo 2023 (Jan)",
+      "role": "secondary",
+      "url": "https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/mitathletics.com/images/2023/1/29/Nikhil_Kakarla_Web.jpg"
+    }
+  ]
+}

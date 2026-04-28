@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikhil Kakarla Website</title>
+    <link rel="stylesheet" href="CSS_files/athletics.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="images/PersonalLogo.png" alt="Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="professional_experience.html">Work Experience</a></li>
+                    <li><a href="technical-portfolio.html">Technical Portfolio</a></li>
+                    <li><a href="creative.html">Creative Portfolio</a></li>
+                    <li><a href="athletics.html">Athletics</a></li>
+                    <li><a href="Nikhil_Kakarla_CV_2024.pdf" download="Nikhil_Kakarla_CV_2024.pdf">Resume Download</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-title">
+            <h1>Athletics</h1>
+            <p>A summary of my 10-year squash career from juniors through MIT.</p>
+        </div>
+
+        <!-- Video Player -->
+        <section class="video-section">
+            <div class="video-player-container">
+                <button class="switch-btn" id="prev-btn">&#9664;</button>
+                <div class="video-wrapper">
+                    <div id="slideshow-display" class="slideshow-display">
+                        <img class="slide-img" id="slide-a" src="" alt="">
+                        <img class="slide-img" id="slide-b" src="" alt="">
+                    </div>
+                    <iframe id="video-player"
+                        src=""
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen></iframe>
+                    <p id="video-title"></p>
+                </div>
+                <button class="switch-btn" id="next-btn">&#9654;</button>
+            </div>
+
+            <div class="video-thumbnails">
+                <!-- Placeholder thumbnails — feed in YouTube links + cover images -->
+                <div class="thumbnail placeholder" data-index="0"><span>Match 1</span></div>
+                <div class="thumbnail placeholder" data-index="1"><span>Match 2</span></div>
+                <div class="thumbnail placeholder" data-index="2"><span>Match 3</span></div>
+            </div>
+        </section>
+
+        <!-- College Squash Results (Horizontal by year) -->
+        <section class="college-section">
+            <h2 class="section-heading">College Squash</h2>
+            <div class="college-scroll">
+                <div class="college-year placeholder-card">
+                    <h3>Freshman</h3>
+                    <p class="year-label">Year Placeholder</p>
+                    <p class="placeholder-text">Team results &amp; individual record coming soon.</p>
+                </div>
+                <div class="college-year placeholder-card">
+                    <h3>Sophomore</h3>
+                    <p class="year-label">Year Placeholder</p>
+                    <p class="placeholder-text">Team results &amp; individual record coming soon.</p>
+                </div>
+                <div class="college-year placeholder-card">
+                    <h3>Junior</h3>
+                    <p class="year-label">Year Placeholder</p>
+                    <p class="placeholder-text">Team results &amp; individual record coming soon.</p>
+                </div>
+                <div class="college-year placeholder-card">
+                    <h3>Senior</h3>
+                    <p class="year-label">Year Placeholder</p>
+                    <p class="placeholder-text">Team results &amp; individual record coming soon.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Junior Squash: two-column -->
+        <section class="juniors-section">
+            <h2 class="section-heading">Junior Squash</h2>
+            <div class="juniors-grid">
+                <!-- Left: charts -->
+                <div class="juniors-col charts-col">
+                    <div class="chart-card">
+                        <h3>US National Ranking</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="ranking-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Rating Over Time <button class="legend-help-btn" id="rating-help-btn" aria-label="How ratings work">?</button></h3>
+                        <div class="chart-wrapper">
+                            <canvas id="rating-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card match-record-card">
+                        <h3>Match Record</h3>
+                        <div class="pie-charts-row">
+                            <div class="pie-chart-wrap">
+                                <p class="pie-chart-title">235 <span class="pie-chart-label">Wins</span></p>
+                                <div class="pie-wrapper">
+                                    <canvas id="wins-chart"></canvas>
+                                </div>
+                            </div>
+                            <div class="pie-chart-wrap">
+                                <p class="pie-chart-title">156 <span class="pie-chart-label">Losses</span></p>
+                                <div class="pie-wrapper">
+                                    <canvas id="losses-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pie-legend">
+                            <span class="pie-legend-item"><span class="pie-swatch" style="background:#4caf72"></span>3-game</span>
+                            <span class="pie-legend-item"><span class="pie-swatch" style="background:#b03030"></span>4-game</span>
+                            <span class="pie-legend-item"><span class="pie-swatch" style="background:#c9a614"></span>5-game</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: tournaments -->
+                <div class="juniors-col tournaments-col">
+                    <div class="tournaments-card">
+                        <div class="tournaments-card-head">
+                            <div class="tournaments-title-row">
+                                <h3>Tournaments &amp; Results</h3>
+                                <button class="legend-help-btn" id="tier-help-btn" aria-label="Tournament tier info">?</button>
+                            </div>
+                            <div class="tournaments-legend">
+                                <span class="legend-item"><span class="legend-swatch swatch-jct"></span>Platinum (JCT)</span>
+                                <span class="legend-item"><span class="legend-swatch swatch-gold"></span>Gold</span>
+                                <span class="legend-item"><span class="legend-swatch swatch-silver"></span>Silver</span>
+                                <span class="legend-item"><span class="legend-swatch swatch-bronze"></span>Bronze</span>
+                            </div>
+                        </div>
+                        <div class="tournaments-col-header">
+                            <span>Tournament</span>
+                            <span>Finish</span>
+                        </div>
+                        <ul class="tournaments-list" id="tournaments-list">
+                            <!-- Populated from JS -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Tournament tier info modal -->
+    <div class="tier-modal-overlay" id="tier-modal-overlay">
+        <div class="tier-modal">
+            <button class="tier-modal-close" id="tier-modal-close">&times;</button>
+            <h4>Tournament Tiers Explained</h4>
+            <ul class="tier-desc-list">
+                <li>
+                    <span class="tier-desc-swatch swatch-jct"></span>
+                    <div>
+                        <strong>Platinum — JCT (Junior Championship Tournament)</strong>
+                        <p>The most prestigious junior circuit events. Nationally sanctioned with the highest level of competition and the greatest ranking point weight.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="tier-desc-swatch swatch-gold"></span>
+                    <div>
+                        <strong>Gold</strong>
+                        <p>High-level regional tournaments with large competitive draws. Second tier of the junior circuit, drawing top juniors from across the country.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="tier-desc-swatch swatch-silver"></span>
+                    <div>
+                        <strong>Silver</strong>
+                        <p>Mid-tier junior tournaments with strong regional competition. Great stepping-stone events on the path to Gold level play.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="tier-desc-swatch swatch-bronze"></span>
+                    <div>
+                        <strong>Bronze</strong>
+                        <p>Entry-level competitive junior tournaments, ideal for developing players building early tournament experience and ranking points.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Rating info modal -->
+    <div class="tier-modal-overlay" id="rating-modal-overlay">
+        <div class="tier-modal">
+            <button class="tier-modal-close" id="rating-modal-close">&times;</button>
+            <h4>How Squash Ratings Work</h4>
+            <p style="color:rgba(255,255,255,0.65); font-size:13px; margin-bottom:14px;">
+                US Squash uses the <strong style="color:#fff;">Universal Squash Rating (USR)</strong> — a dynamic Elo-style number that updates weekly based on match results in sanctioned events. Winning against a higher-rated opponent gains more points; losing to a lower-rated opponent costs more. Ratings range roughly from 0 to 7+.
+            </p>
+            <ul class="tier-desc-list">
+                <li>
+                    <div>
+                        <strong>0.0 – 2.0 &nbsp;·&nbsp; Beginner</strong>
+                        <p>New to the sport. Still developing basic strokes and court movement.</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>2.0 – 3.5 &nbsp;·&nbsp; Novice – Intermediate</strong>
+                        <p>Consistent rallying with improving shot selection. Active in local club play.</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>3.5 – 4.5 &nbsp;·&nbsp; Competitive Recreational</strong>
+                        <p>Regular tournament competitors. Strong fundamentals and court awareness.</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>4.5 – 5.5 &nbsp;·&nbsp; Advanced</strong>
+                        <p>High-level junior players and serious adult competitors. Consistent in regional events.</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>5.5 – 6.5 &nbsp;·&nbsp; Elite</strong>
+                        <p>Top juniors nationally, collegiate varsity players, and strong adult professionals.</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>6.5+ &nbsp;·&nbsp; World-Class</strong>
+                        <p>PSA-ranked professionals and top collegiate players competing at the highest level.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3"></script>
+    <script src="JS_files/athletics_data.js"></script>
+    <script src="JS_files/squash_data.js"></script>
+    <script src="JS_files/athletics.js"></script>
+</body>
+</html>
