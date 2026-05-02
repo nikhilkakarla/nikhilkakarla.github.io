@@ -3,7 +3,7 @@ window.ATHLETICS_CONFIG = {
         { "src": "https://www.youtube.com/embed/-rSqeD5FhPs", "title": "Match 1" },
         { "src": "https://www.youtube.com/embed/GDgncmvC49Y", "title": "Match 2" },
         { "src": "https://www.youtube.com/embed/mCtLWKAhA-8", "title": "Match 3" },
-        { "src": "https://www.youtube.com/embed/hmI3T5NW-aA", "title": "Match 4" }
+        { "src": "https://www.youtube.com/embed/P5WPzfStNRw", "title": "Match 4" }
     ],
     "college": [
         {
