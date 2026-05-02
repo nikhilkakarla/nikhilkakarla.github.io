@@ -40,11 +40,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let slideActive = slideA;
     let slideInactive = slideB;
 
+    // Warm the browser cache so each crossfade has its image ready before we swap.
+    SLIDESHOW_IMAGES.forEach(src => { const img = new Image(); img.src = src; });
+
     function crossfadeTo(src) {
+        // Wait for the new image to decode before fading. Otherwise the inactive
+        // slide still holds its previous src and briefly fades that in before
+        // snapping to the new image.
+        const swap = () => {
+            slideInactive.classList.add('active');
+            slideActive.classList.remove('active');
+            [slideActive, slideInactive] = [slideInactive, slideActive];
+        };
+        slideInactive.onload = swap;
+        slideInactive.onerror = swap;
         slideInactive.src = src;
-        slideInactive.classList.add('active');
-        slideActive.classList.remove('active');
-        [slideActive, slideInactive] = [slideInactive, slideActive];
     }
 
     function startSlideshow() {
